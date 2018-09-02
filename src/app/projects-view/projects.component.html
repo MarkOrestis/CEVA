@@ -10,7 +10,8 @@
       </div>
 
       <mat-action-row>
-        <button mat-raised-button class="vote-button">
+        <button mat-raised-button class="vote-button"
+                (click)="castVote(project)">
           Vote Now
         </button>
       </mat-action-row>

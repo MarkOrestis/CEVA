@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {VoteConfirmationDialogComponent} from '../components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 
 @Component({
   selector: 'app-projects',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   projects = [{
     title: 'Some Project Title',
@@ -51,5 +53,11 @@ export class ProjectsComponent implements OnInit {
     'lobortis condimentum nisi quis malesuada.'
   }];
   ngOnInit() {
+  }
+
+  castVote(project): void {
+    const dialogRef = this.dialog.open(VoteConfirmationDialogComponent, {
+      data: {project: project}
+    });
   }
 }

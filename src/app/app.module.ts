@@ -9,12 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 import {MatToolbarModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
 import {MatTabsModule} from '@angular/material';
-import { ProjectsComponent } from './projects/projects.component';
-import { ExpoMapComponent } from './expo-map/expo-map.component';
-import { HomeComponent } from './home/home.component';
+import { ProjectsComponent } from './projects-view/projects.component';
+import { ExpoMapComponent } from './expo-map-view/expo-map.component';
+import { HomeComponent } from './home-view/home.component';
 import { MatCardModule} from '@angular/material';
 import { MatButtonModule} from '@angular/material';
 import { MatExpansionModule} from '@angular/material';
+import { MatDialogModule} from '@angular/material';
+import { VoteConfirmationDialogComponent } from './components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { MatExpansionModule} from '@angular/material';
     FooterComponent,
     ProjectsComponent,
     ExpoMapComponent,
-    HomeComponent
+    HomeComponent,
+    VoteConfirmationDialogComponent
+  ],
+  entryComponents: [
+    VoteConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,8 @@ import { MatExpansionModule} from '@angular/material';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
