@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CEVA';
+  tabIndex = 0;
+
+  setTabIndex(index) {
+    this.tabIndex = index;
+  }
 }
