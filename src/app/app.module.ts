@@ -12,6 +12,9 @@ import {MatTabsModule} from '@angular/material';
 import { ProjectsComponent } from './projects/projects.component';
 import { ExpoMapComponent } from './expo-map/expo-map.component';
 import { HomeComponent } from './home/home.component';
+import { MatCardModule} from '@angular/material';
+import { MatButtonModule} from '@angular/material';
+import { MatExpansionModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

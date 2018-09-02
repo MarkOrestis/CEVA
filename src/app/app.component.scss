@@ -1,13 +1,12 @@
 .icon-tab-bar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: white;
 }
 
-.tab-content {
-  flex: auto;
+.main-content-div {
+  margin-bottom: 50px;
 }
 
-.example-icon {
-  padding: 0 14px;
-}
+
