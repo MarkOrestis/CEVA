@@ -1,0 +1,41 @@
+
+
+.container {
+    display: flex; /* or inline-flex */
+    background-color: white;
+    flex-wrap: nowrap;
+    height: 8vh; /* or whatever */
+    position: absolute;
+    width: 100vw;
+    vertical-align: middle;
+    line-height: 8vh;
+    bottom: 0;
+    text-align: center;
+    bottom: 0;
+    background-color: rgba(192, 192, 192, 0.3);
+  }
+  .item {
+    flex: 1 1;
+    border-width: 0px;
+    border-style: solid;
+    border-color: black;
+    
+  }
+
+  .item-selected {
+    background-color: red;
+  }
+
+  .item-not-selected {
+    background-color: blue;
+  }
+
+
+  .vote-img {
+      width: 25%;
+      vertical-align: middle;
+  }
+  .item>div>img {
+    width: 25%;
+    vertical-align: middle;
+}

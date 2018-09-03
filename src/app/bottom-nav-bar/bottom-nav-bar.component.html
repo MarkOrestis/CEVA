@@ -1,0 +1,46 @@
+<!-- <div class="bottom-nav-container">
+  <div class="bottom-nav">
+    <ul>
+      <li>tab 1</li>
+      <li>tab 2</li>
+      <li>tab 3</li>
+      <li>tab 4</li>
+    </ul>
+  </div>
+  
+</div> -->
+
+<div class="container">
+    <!-- <div *>
+        <div class="item" (click)="clickedNavButton('vote')"><img class="vote-img" src="../assets/images/spreadsheet-8x-2.png"></div>
+    </div>
+    <div *ngIf="currentlySelectedTab != 'vote'">
+        <div class="item" (click)="clickedNavButton('vote')"><img class="vote-img" src="../assets/images/spreadsheet-8x.png"></div>
+    </div>
+    <div *ngIf="currentlySelectedTab == 'map'">
+        <div class="item" (click)="clickedNavButton('map')"><img class="vote-img" src="../assets/images/map-8x-2.png"></div>
+    </div>
+    <div *ngIf="currentlySelectedTab != 'map'">
+        <div class="item" (click)="clickedNavButton('map')"><img class="vote-img" src="../assets/images/map-8x.png"></div>
+    </div>
+    <div *ngIf="currentlySelectedTab == 'about'">
+        <div class="item" (click)="clickedNavButton('about')"><img class="vote-img" src="../assets/images/home-8x-2.png"></div>
+    </div>
+    <div *ngIf="currentlySelectedTab != 'about'">
+        <div class="item" (click)="clickedNavButton('about')"><img class="vote-img" src="../assets/images/home-8x.png"></div>
+    </div> -->
+
+    <div class="item" (click)="clickedNavButton('vote')">
+        <img [hidden]="!currentlyVote()" class="vote-img" src="../assets/images/spreadsheet-8x-2.png">
+        <img [hidden]="currentlyVote()" class="vote-img" src="../assets/images/spreadsheet-8x.png">
+    </div>
+    <div class="item" (click)="clickedNavButton('map')">
+        <img [hidden]="!currentlyMap()" class="vote-img" src="../assets/images/map-8x-2.png">
+        <img [hidden]="currentlyMap()" class="vote-img" src="../assets/images/map-8x.png">
+    </div>
+    <div class="item" (click)="clickedNavButton('home')">
+        <img [hidden]="!currentlyHome()" class="vote-img" src="../assets/images/home-8x-2.png">
+        <img [hidden]="currentlyHome()" class="vote-img" src="../assets/images/home-8x.png">
+    </div>
+  
+  </div>
