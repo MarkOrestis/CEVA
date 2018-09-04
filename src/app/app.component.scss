@@ -7,3 +7,8 @@
 }
 
 .no-scroll .scroll-content{ overflow: hidden; }
+
+.router-outlet {
+    height: 90vh;
+    overflow-y: scroll;
+}
