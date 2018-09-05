@@ -1,5 +1,7 @@
-export class Project {
+export interface Project {
   title: string;
-  teamNumber: string;
+  teamNumber: number;
   description: string;
+  teamMembers: string[];
+  _id: string;
 }

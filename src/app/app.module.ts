@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material';
 import {MatIconModule} from '@angular/material';
@@ -37,7 +36,7 @@ import { VoteConfirmationDialogComponent } from './components/vote-confirmation-
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatTabsModule,

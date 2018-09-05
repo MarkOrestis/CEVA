@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {VoteConfirmationDialogComponent} from '../components/vote-confirmation-dialog/vote-confirmation-dialog.component';
+import {ProjectsService} from '../projects.service';
+import {Project} from '../structs/Project';
 
 @Component({
   selector: 'app-projects',
@@ -9,9 +11,11 @@ import {VoteConfirmationDialogComponent} from '../components/vote-confirmation-d
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private projectService: ProjectsService) { }
 
-  projects = [{
+  projects: Project[];
+
+  projects1 = [{
     title: 'Some Project Title',
     teamNumber : 'Team 8125',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In aliquet, libero eget scelerisque placerat, ' +
@@ -53,6 +57,10 @@ export class ProjectsComponent implements OnInit {
     'lobortis condimentum nisi quis malesuada.'
   }];
   ngOnInit() {
+    let p = this.projectService.getProjects();
+    if (p.length > 1) {
+      this.projects = p;
+    }
   }
 
   castVote(project): void {
