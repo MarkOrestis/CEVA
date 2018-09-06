@@ -17,7 +17,9 @@ import { MatCardModule} from '@angular/material';
 import { MatButtonModule} from '@angular/material';
 import { MatExpansionModule} from '@angular/material';
 import { MatDialogModule} from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
 import { VoteConfirmationDialogComponent } from './components/vote-confirmation-dialog/vote-confirmation-dialog.component';
+import { CommentConfirmationDialogComponent } from './components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -26,10 +28,12 @@ import { VoteConfirmationDialogComponent } from './components/vote-confirmation-
     ProjectsComponent,
     ExpoMapComponent,
     HomeComponent,
-    VoteConfirmationDialogComponent
+    VoteConfirmationDialogComponent,
+    CommentConfirmationDialogComponent
   ],
   entryComponents: [
-    VoteConfirmationDialogComponent
+    VoteConfirmationDialogComponent,
+    CommentConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { VoteConfirmationDialogComponent } from './components/vote-confirmation-
     MatCardModule,
     MatButtonModule,
     MatExpansionModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

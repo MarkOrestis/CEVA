@@ -12,6 +12,11 @@
 
       <mat-action-row>
         <button mat-raised-button class="vote-button"
+                (click)="comment(project)">
+          Comment
+        </button>
+        <div class = "divider"></div>
+        <button mat-raised-button class="vote-button"
                 (click)="castVote(project)">
           Vote Now
         </button>

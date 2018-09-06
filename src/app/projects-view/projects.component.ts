@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import {VoteConfirmationDialogComponent} from '../components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 import {ProjectsService} from '../projects.service';
 import {Project} from '../structs/Project';
+import {CommentConfirmationDialogComponent} from '../components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 
 @Component({
   selector: 'app-projects',
@@ -57,7 +58,7 @@ export class ProjectsComponent implements OnInit {
     'lobortis condimentum nisi quis malesuada.'
   }];
   ngOnInit() {
-    let p = this.projectService.getProjects();
+    const p = this.projectService.getProjects();
     if (p.length > 1) {
       this.projects = p;
     }
@@ -65,6 +66,12 @@ export class ProjectsComponent implements OnInit {
 
   castVote(project): void {
     const dialogRef = this.dialog.open(VoteConfirmationDialogComponent, {
+      data: {project: project}
+    });
+  }
+
+  comment(project): void {
+    const dialogRef = this.dialog.open(CommentConfirmationDialogComponent, {
       data: {project: project}
     });
   }
