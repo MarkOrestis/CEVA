@@ -4,7 +4,7 @@
     <mat-form-field class = "dialog-full-width">
       <textarea matInput placeholder="Leave a comment"></textarea>
     </mat-form-field> 
-    <div class = "cast-comment-button-container">
+    <div mat-dialog-actions class = "cast-comment-button-container">
         <button mat-button (click)="onCancel()">Cancel</button>
         <button class="cast-comment-button"
           mat-button (click)="onSubmit()">Submit</button> 
