@@ -73,7 +73,7 @@ export class ProjectsComponent implements OnInit {
   comment(project): void {
     const dialogRef = this.dialog.open(CommentConfirmationDialogComponent, {
       data: {project: project},
-      width: '80%'
+      width: '75%'
     });
   }
 }
