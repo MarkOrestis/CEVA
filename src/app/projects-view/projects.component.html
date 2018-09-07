@@ -1,0 +1,27 @@
+<div>
+  <mat-accordion [multi]="true">
+    <mat-expansion-panel *ngFor="let project of projects">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{project.title}}</mat-panel-title>
+      </mat-expansion-panel-header>
+      <div layout="column">
+        <h4>{{project.teamNumber}}</h4>
+        {{project.description}}
+        <h4>Members: {{project.teamMembers}}</h4>
+      </div>
+
+      <mat-action-row>
+        <button mat-raised-button class="vote-button"
+                (click)="comment(project)">
+          Comment
+        </button>
+        <div class = "divider"></div>
+        <button mat-raised-button class="vote-button"
+                (click)="castVote(project)">
+          Vote Now
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
