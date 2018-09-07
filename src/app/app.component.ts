@@ -8,7 +8,6 @@ import { ProjectsService } from '../app/projects.service';
 })
 export class AppComponent implements OnInit {
   title = 'CEVA';
-  tabIndex = 0;
 
   constructor(public projectsService: ProjectsService) {
 
@@ -17,8 +16,5 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log('app on in it');
     this.projectsService.loadProjects();
-  }
-  setTabIndex(index) {
-    this.tabIndex = index;
   }
 }
