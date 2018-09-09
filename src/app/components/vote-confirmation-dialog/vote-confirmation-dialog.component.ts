@@ -24,7 +24,7 @@ export class VoteConfirmationDialogComponent {
     this.dialogRef.close();
     }
     onConfirm(): void {
-    this.projectService.castVote(this.data.project._id);
+    this.projectService.castVote(this.data.project.teamNumber);
     localStorage.setItem(key, 'true');
     this.dialogRef.close();
     }

@@ -53,7 +53,7 @@ export class ProjectsService {
     this.http.post<VoteResponse>(configUrl  + '/vote', {teamId: teamId}).subscribe(
       response => {
         if (true) {
-          this.snackBar.open('Vote Successfull cast', null,{
+          this.snackBar.open('Vote Successfully cast', null,{
             duration: 3000
           });
         }
