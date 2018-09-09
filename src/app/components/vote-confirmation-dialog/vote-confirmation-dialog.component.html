@@ -1,6 +1,16 @@
-<h1 mat-dialog-title> Would you like to cast a vote for: <br> {{data.project.title}}</h1>
-<div mat-dialog-actions class="cast-vote-button-container">
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button class="cast-vote-button"
-          mat-button (click)="onConfirm()">Cast Vote</button>
+
+<div *ngIf="hasVoted(); else cantVoteTemplate">
+  <h1 mat-dialog-title> Would you like to cast a vote for: <br> {{data.project.title}}</h1>
+  <div mat-dialog-actions class="cast-vote-button-container">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button class="cast-vote-button"
+            mat-button (click)="onConfirm()">Cast Vote</button>
+  </div>
 </div>
+<ng-template #cantVoteTemplate>
+  <h1 mat-dialog-title> Sorry you are only allowed to vote once</h1>
+  <div mat-dialog-actions class="cast-vote-button-container">
+    <button mat-button (click)="onCancel()">Close</button>
+  </div>
+</ng-template>
+

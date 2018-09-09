@@ -20,7 +20,8 @@ import { MatDialogModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import { VoteConfirmationDialogComponent } from './components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 import { CommentConfirmationDialogComponent } from './components/comment-confirmation-dialog/comment-confirmation-dialog.component';
-
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { VoterViewComponent } from './voter-view/voter-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,9 @@ import { CommentConfirmationDialogComponent } from './components/comment-confirm
     ExpoMapComponent,
     HomeComponent,
     VoteConfirmationDialogComponent,
-    CommentConfirmationDialogComponent
+    CommentConfirmationDialogComponent,
+    AdminViewComponent,
+    VoterViewComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,

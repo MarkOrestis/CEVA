@@ -1,45 +1,4 @@
-<mat-toolbar>
-  <span>CEVA</span>
-</mat-toolbar>
-<div [ngSwitch]="tabIndex" class="main-content-div">
-  <app-home *ngSwitchCase="0"></app-home>
-  <app-projects *ngSwitchCase="1"></app-projects>
-  <app-expo-map *ngSwitchCase="2"></app-expo-map>
-</div>
 
-<mat-tab-group mat-stretch-tabs
-               class="icon-tab-bar"
-                headerPosition="below"
-               [dynamicHeight]="false"
-               (selectedIndexChange)="setTabIndex($event)">
-
-    <mat-tab aria-label="Home">
-      <ng-template mat-tab-label>
-        <div layout="row">
-          <mat-icon>home</mat-icon>
-          <h6 class="tab-text">Home</h6>
-        </div>
-      </ng-template>
-    </mat-tab>
-
-    <mat-tab aria-label="Projects">
-      <ng-template mat-tab-label>
-        <div>
-          <mat-icon>list</mat-icon>
-          <h6 class="tab-text">Projects</h6>
-        </div>
-      </ng-template>
-    </mat-tab>
-
-    <mat-tab aria-label="Expo Map">
-      <ng-template mat-tab-label>
-        <div>
-          <mat-icon>map</mat-icon>
-          <h6 class="tab-text">Expo Map</h6>
-        </div>
-      </ng-template>
-    </mat-tab>
-</mat-tab-group>
 
 
 <router-outlet></router-outlet>
