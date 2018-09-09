@@ -18,6 +18,8 @@ import { MatButtonModule} from '@angular/material';
 import { MatExpansionModule} from '@angular/material';
 import { MatDialogModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 import { VoteConfirmationDialogComponent } from './components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 import { CommentConfirmationDialogComponent } from './components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
@@ -51,7 +53,8 @@ import { VoterViewComponent } from './voter-view/voter-view.component';
     MatButtonModule,
     MatExpansionModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,4 +4,5 @@ export interface Project {
   description: string;
   teamMembers: string[];
   _id: string;
+  comments: string[];
 }

@@ -4,4 +4,5 @@ export interface ProjectJSON {
   description: string;
   teamMembers: string[];
   _id: string;
+  comments: string[];
 }
