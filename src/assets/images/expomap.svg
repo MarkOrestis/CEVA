@@ -103,14 +103,14 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
      sodipodi:insensitive="true"
      transform="translate(-9.9398434,-16.071121)">
     <rect
-       id="rect3963"
+       id="rect5"
        width="35.041412"
        height="19.560991"
        x="111.24956"
        y="152.45654"
        transform="rotate(-13.4)" />
     <rect
-       id="rect3963-8"
+       id="rect6"
        width="34.367321"
        height="19.000599"
        x="174.28246"
@@ -118,7 +118,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-12.2)" />
     <rect
        style="display:inline"
-       id="rect3963-8-5"
+       id="rect7"
        width="34.367321"
        height="19.000599"
        x="244.6338"
@@ -126,7 +126,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-9.2)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2"
+       id="rect8"
        width="34.367321"
        height="19.000599"
        x="304.65677"
@@ -134,7 +134,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-8.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-9"
+       id="rect9"
        width="34.367321"
        height="19.000599"
        x="376.12772"
@@ -142,7 +142,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-4.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-3"
+       id="rect15"
        width="34.367321"
        height="19.000599"
        x="159.37517"
@@ -150,7 +150,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-15)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-1"
+       id="rect16"
        width="34.367321"
        height="19.000599"
        x="207.3676"
@@ -158,7 +158,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32"
+       id="rect17"
        width="34.367321"
        height="19.000599"
        x="249.93196"
@@ -166,7 +166,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-99"
+       id="rect18"
        width="34.367321"
        height="19.000599"
        x="160.30025"
@@ -174,7 +174,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-15.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-1-2"
+       id="rect19"
        width="34.367321"
        height="19.000599"
        x="207.89566"
@@ -182,7 +182,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-5"
+       id="rect20"
        width="34.367321"
        height="19.000599"
        x="252.09099"
@@ -190,7 +190,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-2"
+       id="rect23"
        width="34.367321"
        height="19.000599"
        x="253.13124"
@@ -198,7 +198,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8"
+       id="rect26"
        width="34.367321"
        height="19.000599"
        x="252.36006"
@@ -206,7 +206,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-1-7"
+       id="rect22"
        width="34.367321"
        height="19.000599"
        x="212.12337"
@@ -214,7 +214,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-1-2-1"
+       id="rect25"
        width="34.367321"
        height="19.000599"
        x="212.65143"
@@ -222,7 +222,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-3-8"
+       id="rect21"
        width="34.367321"
        height="19.000599"
        x="166.31276"
@@ -230,7 +230,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-15)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-99-4"
+       id="rect24"
        width="34.367321"
        height="19.000599"
        x="165.25041"
@@ -238,7 +238,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-15.4)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-1"
+       id="rect28"
        width="34.367321"
        height="19.000599"
        x="239.25179"
@@ -246,7 +246,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-2"
+       id="rect30"
        width="34.367321"
        height="19.000599"
        x="240.19753"
@@ -254,7 +254,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-4"
+       id="rect27"
        width="34.367321"
        height="19.000599"
        x="198.51645"
@@ -262,7 +262,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-43"
+       id="rect29"
        width="34.367321"
        height="19.000599"
        x="199.35858"
@@ -270,7 +270,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-14.8)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47"
+       id="rect10"
        width="34.367321"
        height="19.000599"
        x="-189.57884"
@@ -278,7 +278,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-90)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0"
+       id="rect11"
        width="34.367321"
        height="19.000599"
        x="-228.1142"
@@ -286,7 +286,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-90)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-4"
+       id="rect12"
        width="34.367321"
        height="19.000599"
        x="-297.68073"
@@ -294,7 +294,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-90)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7"
+       id="rect13"
        width="34.367321"
        height="19.000599"
        x="-342.70627"
@@ -302,7 +302,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-90)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7-1"
+       id="rect14"
        width="34.367321"
        height="19.000599"
        x="-411.86716"
@@ -310,7 +310,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-90)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7-4"
+       id="rect4"
        width="34.367321"
        height="19.000599"
        x="-284.12387"
@@ -318,7 +318,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-120.6)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7-4-6"
+       id="rect3"
        width="34.367321"
        height="19.000599"
        x="-322.66537"
@@ -326,7 +326,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-120.6)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7-4-6-7"
+       id="rect2"
        width="34.367321"
        height="19.000599"
        x="-398.27277"
@@ -334,7 +334,7 @@ Created by potrace 1.15, written by Peter Selinger 2001-2017
        transform="rotate(-120.6)" />
     <rect
        style="display:inline"
-       id="rect3963-8-2-32-8-47-0-7-4-6-7-2"
+       id="rect1"
        width="34.367321"
        height="19.000599"
        x="-437.49747"
