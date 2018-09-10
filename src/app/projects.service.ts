@@ -3,13 +3,10 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
-import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
 import {Subject} from 'rxjs/Subject';
 import {Project} from './structs/Project';
 import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
-import {catchError} from 'rxjs/internal/operators';
 
 const configUrl = ' http://juniordesign.herokuapp.com/api/projects';
 
@@ -53,7 +50,7 @@ export class ProjectsService {
     this.http.post<VoteResponse>(configUrl  + '/vote', {teamId: teamId}).subscribe(
       response => {
         if (true) {
-          this.snackBar.open('Vote Successfully cast', null,{
+          this.snackBar.open('Vote Successfully cast', null, {
             duration: 3000
           });
         }
