@@ -1,14 +1,20 @@
 <div>
-  <mat-accordion [multi]="true">
     <mat-expansion-panel *ngFor="let project of projects">
       <mat-expansion-panel-header>
         <mat-panel-title>{{project.title}}</mat-panel-title>
       </mat-expansion-panel-header>
-      <div layout="column">
-        <h4>{{project.teamNumber}}</h4>
-        {{project.description}}
-        <h4>Members: {{project.teamMembers}}</h4>
-      </div>
+        <div layout="column">
+          <h4>{{project.teamNumber}}</h4>
+          <div>{{project.description}}</div>
+          <br>
+          <div class="team-members-div">
+            Team Memebers:
+            {{project.teamMembers.toString()}}
+            <!--<li *ngFor="let members of project.teamMembers">-->
+              <!--{{members}}-->
+            <!--</li>-->
+          </div>
+        </div>
       <mat-action-row>
         <button mat-raised-button class="comment-button"
                 (click)="comment(project)">
@@ -21,6 +27,5 @@
         </button>
       </mat-action-row>
     </mat-expansion-panel>
-  </mat-accordion>
 </div>
 

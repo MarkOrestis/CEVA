@@ -14,6 +14,10 @@ export interface VoteResponse {
   success: string;
 }
 
+export interface CommentResponse {
+  success: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -55,6 +59,17 @@ export class ProjectsService {
           });
         }
       }
+    );
+  }
+
+  addComment(teamId, comment) {
+    this.http.post<CommentResponse>(configUrl + '/comment', {teamId : teamId, comment: comment}).subscribe(
+      response => {
+        if (true) {
+          this.snackBar.open('Thank you for your comment', null, {
+            duration: 3000
+        });
+      }}
     );
   }
 
