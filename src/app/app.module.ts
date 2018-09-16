@@ -19,13 +19,13 @@ import { MatExpansionModule} from '@angular/material';
 import { MatDialogModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatChipsModule} from '@angular/material/chips';
 import {FormsModule} from '@angular/forms';
-
 import { VoteConfirmationDialogComponent } from './components/vote-confirmation-dialog/vote-confirmation-dialog.component';
 import { CommentConfirmationDialogComponent } from './components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { VoterViewComponent } from './voter-view/voter-view.component';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { VoterViewComponent } from './voter-view/voter-view.component';
     VoteConfirmationDialogComponent,
     CommentConfirmationDialogComponent,
     AdminViewComponent,
-    VoterViewComponent
+    VoterViewComponent,
+    LoginComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
@@ -57,8 +58,8 @@ import { VoterViewComponent } from './voter-view/voter-view.component';
     MatDialogModule,
     MatInputModule,
     MatSnackBarModule,
-    FormsModule
-  ],
+    MatChipsModule,
+    FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

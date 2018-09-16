@@ -8,7 +8,7 @@ import {Project} from './structs/Project';
 import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
 
-const configUrl = ' http://juniordesign.herokuapp.com/api/projects';
+const configUrl = ' https://juniordesign.herokuapp.com/api/projects';
 
 export interface VoteResponse {
   success: string;
