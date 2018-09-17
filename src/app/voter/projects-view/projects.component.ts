@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {VoteConfirmationDialogComponent} from '../components/vote-confirmation-dialog/vote-confirmation-dialog.component';
-import {ProjectsService} from '../projects.service';
-import {Project} from '../structs/Project';
-import {CommentConfirmationDialogComponent} from '../components/comment-confirmation-dialog/comment-confirmation-dialog.component';
+import {VoteConfirmationDialogComponent} from '../../components/vote-confirmation-dialog/vote-confirmation-dialog.component';
+import {ProjectsService} from '../../projects.service';
+import {Project} from '../../structs/Project';
+import {CommentConfirmationDialogComponent} from '../../components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 
 @Component({
   selector: 'app-projects',
