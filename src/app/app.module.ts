@@ -29,6 +29,7 @@ import { AdminToolbarComponent } from './admin/admin-toolbar/admin-toolbar.compo
 import { AddProjectsComponent } from './admin/add-projects/add-projects.component';
 import { ViewResultsComponent } from './admin/view-results/view-results.component';
 import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.component';
+import { InfoViewComponent } from './voter/info-view/info-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.
     AdminToolbarComponent,
     AddProjectsComponent,
     ViewResultsComponent,
-    CreateExpoMapComponent
+    CreateExpoMapComponent,
+    InfoViewComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
