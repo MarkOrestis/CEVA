@@ -7,6 +7,7 @@ import {Subject} from 'rxjs/Subject';
 import {Project} from './structs/Project';
 import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
+import {HttpHeaders} from '@angular/common/http';
 
 const configUrl = ' https://juniordesign.herokuapp.com/api/projects';
 
@@ -36,13 +37,26 @@ export class ProjectsService {
 
   projects: Project[] = [];
   resp;
+  currentExposition: string;
   currentProjects: Subject<Project[]> = new Subject<Project[]>();
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
+    this.currentExposition = 'FALL2018';
   }
 
   loadProjects() {
     this.http.get(configUrl).subscribe((data) => {
+      for (let i = 0; i < data['data'].length; i++) {
+        this.projects.push(this.decodeProject(data['data'][i]));
+        console.log(this.projects[i]);
+      }
+      this.currentProjects.next(this.projects);
+    });
+  }
+
+  getCurrExpoProjects() {
+    const httpHeaders = new HttpHeaders().set('expo', this.currentExposition);
+    this.http.get(configUrl + '/expo', {headers: httpHeaders}).subscribe((data) => {
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
       }

@@ -23,7 +23,7 @@ export class CommentConfirmationDialogComponent {
   }
 
   onSubmit(): any {
-    this.projectService.addComment(this.data.project.teamNumber, this.commentInput)
+    this.projectService.addComment(this.data.project.teamNumber, this.commentInput);
     this.dialogRef.close();
     return false;
   }
