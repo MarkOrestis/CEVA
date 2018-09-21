@@ -1,5 +1,13 @@
 <div>
-    <mat-expansion-panel *ngFor="let project of projects">
+  <!-- <form class = "search-form"> -->
+<div>
+  <mat-form-field class = "search-form">
+    <input matInput [(ngModel)]="searchText" placeholder="Search">
+    <mat-icon class = "magnifying-glass">mode_search</mat-icon>
+  </mat-form-field>
+</div>
+  <!-- </form> -->
+    <mat-expansion-panel *ngFor="let project of projects | filter : searchText">
       <mat-expansion-panel-header>
         <mat-panel-title>{{project.title}}</mat-panel-title>
       </mat-expansion-panel-header>

@@ -26,6 +26,7 @@ import { VoteConfirmationDialogComponent } from './components/vote-confirmation-
 import { CommentConfirmationDialogComponent } from './components/comment-confirmation-dialog/comment-confirmation-dialog.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 import { VoterViewComponent } from './voter-view/voter-view.component';
+import { FilterPipe } from './filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { VoterViewComponent } from './voter-view/voter-view.component';
     VoteConfirmationDialogComponent,
     CommentConfirmationDialogComponent,
     AdminViewComponent,
-    VoterViewComponent
+    VoterViewComponent,
+    FilterPipe
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
