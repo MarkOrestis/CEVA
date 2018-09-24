@@ -98,7 +98,8 @@ export class ProjectsService {
       teamMembers: json.teamMembers,
       _id: json._id,
       description: this.des,
-      comments: json.comments
+      comments: json.comments,
+      votes: json.votes
     };
   }
 }

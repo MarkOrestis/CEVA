@@ -9,16 +9,22 @@ import { Project } from '../../structs/Project';
 })
 export class ChartDataComponent implements OnInit {
 
-  constructor(private ProjectService: ProjectsService) { }
+  constructor(private projectService: ProjectsService) { }
 
   projects: Project[];
-  labels: string[];
+
   ngOnInit() {
-    const p = this.ProjectService.getProjects();
+    const p = this.projectService.getProjects();
     if (p.length > 1) {
       this.projects = p;
+      this.projects.forEach(project => {
+        // this.labels.push(project.title);
+        console.log(project.title);
+        // console.log(this.labels);
+      });
     }
-    console.log(this.projects);
+    // console.log(this.labels);
+    // console.log(this.votes);
   }
 
 }

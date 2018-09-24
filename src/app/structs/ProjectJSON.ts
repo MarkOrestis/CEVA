@@ -5,4 +5,5 @@ export interface ProjectJSON {
   teamMembers: string[];
   _id: string;
   comments: string[];
+  votes: number;
 }
