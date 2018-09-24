@@ -11,7 +11,6 @@ import {MatIconModule} from '@angular/material';
 import {MatTabsModule} from '@angular/material';
 import { ProjectsComponent } from './voter/projects-view/projects.component';
 import { ExpoMapComponent } from './voter/expo-map-view/expo-map.component';
-import { HomeComponent } from './voter/home-view/home.component';
 import { MatCardModule} from '@angular/material';
 import { MatButtonModule} from '@angular/material';
 import { MatExpansionModule} from '@angular/material';
@@ -35,7 +34,6 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
     AppComponent,
     ProjectsComponent,
     ExpoMapComponent,
-    HomeComponent,
     VoteConfirmationDialogComponent,
     CommentConfirmationDialogComponent,
     AdminViewComponent,
