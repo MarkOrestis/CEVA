@@ -30,6 +30,7 @@ import { AddProjectsComponent } from './admin/add-projects/add-projects.componen
 import { ViewResultsComponent } from './admin/view-results/view-results.component';
 import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.component';
 import { InfoViewComponent } from './voter/info-view/info-view.component';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
     AddProjectsComponent,
     ViewResultsComponent,
     CreateExpoMapComponent,
-    InfoViewComponent
+    InfoViewComponent,
+    FilterPipe
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
@@ -67,7 +69,8 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
     MatInputModule,
     MatSnackBarModule,
     MatChipsModule,
-    FormsModule],
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
