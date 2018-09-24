@@ -30,6 +30,7 @@ import { ViewResultsComponent } from './admin/view-results/view-results.componen
 import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.component';
 import { InfoViewComponent } from './voter/info-view/info-view.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ChartDataComponent } from './components/chart-data/chart-data.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     ViewResultsComponent,
     CreateExpoMapComponent,
     InfoViewComponent,
-    FilterPipe
+    FilterPipe,
+    ChartDataComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
