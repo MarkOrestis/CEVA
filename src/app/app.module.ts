@@ -34,6 +34,7 @@ import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { ExpoInformationComponent } from './expo-information/expo-information.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
     ViewResultsComponent,
     CreateExpoMapComponent,
     InfoViewComponent,
-    FilterPipe
+    FilterPipe,
+    ExpoInformationComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
