@@ -36,6 +36,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { ExpoInformationComponent } from './expo-information/expo-information.component';
 
+import { AngularFileUploaderModule } from 'angular-file-uploader';
+
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +82,9 @@ import { ExpoInformationComponent } from './expo-information/expo-information.co
     MatFormFieldModule,
     MatSelectModule,
     NgSelectModule,
-    SelectDropDownModule
+    SelectDropDownModule,
+    AngularFileUploaderModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
