@@ -37,7 +37,6 @@ export class AdminToolbarComponent implements OnInit {
       this.expositions = expos;
       this.expositionNames = [];
       for ( const e of this.expositions) {
-        console.log(e['name']);
         this.expositionNames.push(e['name']);
     }
     });
@@ -45,9 +44,7 @@ export class AdminToolbarComponent implements OnInit {
 
   ngOnInit() {
     const p = this.projectSvc.getExpositions();
-    console.log(this.expositions);
     for ( const e of this.expositions) {
-        // console.log(e);
         this.expositionNames.push(e['name']);
     }
     this.dataModel.push(this.projectSvc.getCurrentExpositionTag());

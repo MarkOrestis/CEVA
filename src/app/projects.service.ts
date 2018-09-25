@@ -54,7 +54,6 @@ export class ProjectsService {
     this.http.get(configUrl).subscribe((data) => {
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
-        console.log(this.projects[i]);
       }
       this.currentProjects.next(this.projects);
     });
@@ -64,7 +63,6 @@ export class ProjectsService {
     this.http.get(expoUrl).subscribe((data) => {
       for (let i = 0; i < data['data'].length; i++) {
         this.expositions.push(data['data'][i]);
-        console.log(this.expositions[i]);
       }
       this.currentExpositions.next(this.expositions);
       this.currentExpoTag.next(this.getCurrentExpositionTag());
@@ -78,9 +76,14 @@ export class ProjectsService {
   setCurrentExpoisitionTag(tag) {
     this.currentExposition = tag;
     this.currentExpoTag.next(this.currentExposition);
-    this.getCurrExpoProjects();
+    if (this.currentExposition != null) {
+      this.getCurrExpoProjects();
+    }
   }
 
+  isDefined<T>(value: T | undefined | null): value is T {
+    return <T>value !== undefined && <T>value !== null;
+  }
   getCurrentExpositionTag() {
     return this.currentExposition;
   }
@@ -92,7 +95,6 @@ export class ProjectsService {
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
       }
-      console.log(this.projects);
       this.currentProjects.next(this.projects);
     });
   }
