@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../../projects.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-admin-toolbar',
@@ -15,6 +17,12 @@ export class AdminToolbarComponent implements OnInit {
   selectedCityId: number;
   selectedUserIds: number[];
 
+  subscription: Subscription;
+
+  dataModel = [];
+
+  expositions = [];
+  expositionNames = [];
   config = {
     displayKey: 'description',
     search: true,
@@ -24,11 +32,25 @@ export class AdminToolbarComponent implements OnInit {
     limitTo: this.cities.length
   };
 
-  constructor() { }
+  constructor(private projectSvc: ProjectsService) {
+    this.subscription = this.projectSvc.currentExpositions.subscribe(expos => {
+      this.expositions = expos;
+      this.expositionNames = [];
+      for ( const e of this.expositions) {
+        console.log(e['name']);
+        this.expositionNames.push(e['name']);
+    }
+    });
+  }
 
   ngOnInit() {
-    this.cities.push('city1');
-    this.cities.push('city2');
+    const p = this.projectSvc.getExpositions();
+    console.log(this.expositions);
+    for ( const e of this.expositions) {
+        // console.log(e);
+        this.expositionNames.push(e['name']);
+    }
+    this.dataModel.push(this.projectSvc.getCurrentExpositionTag());
   }
 
 }
