@@ -1,15 +1,19 @@
 <mat-toolbar color="primary">
-  <span>CEVA Admin Console</span>
+  <span>CEVA Administrator</span>
+  <div class="dropdown-div">
+    <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(value)]="dataModel" [config]="config" [options]="expositionNames"></ngx-select-dropdown>
+  </div>
+
   <span class="example-spacer"></span>
   <span>
-      <button mat-button>
-    Create Expo
-  </button>
+      <button mat-button routerLink="expo/information">
+        Expo Information
+      </button>
   </span>
   <span>
       <button mat-button routerLink="expo/projects">
-    Add Projects
-  </button>
+        Expo Projects
+      </button>
   </span>
   <span>
       <button mat-button routerLink="expo/results">
@@ -22,4 +26,5 @@
   </button>
   </span>
 </mat-toolbar>
+
 <router-outlet></router-outlet>

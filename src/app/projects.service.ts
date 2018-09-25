@@ -5,11 +5,14 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 import {Subject} from 'rxjs/Subject';
 import {Project} from './structs/Project';
+import {Expo} from './structs/Expo';
 import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
 import {HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const configUrl = ' https://juniordesign.herokuapp.com/api/projects';
+const expoUrl = ' https://juniordesign.herokuapp.com/api/expositions';
 
 export interface VoteResponse {
   success: string;
@@ -36,9 +39,12 @@ export class ProjectsService {
     'lobortis condimentum nisi quis malesuada.';
 
   projects: Project[] = [];
+  expositions: Expo[] = [];
   resp;
   currentExposition: string;
   currentProjects: Subject<Project[]> = new Subject<Project[]>();
+  currentExpositions: Subject<Expo[]> = new Subject<Expo[]>();
+  currentExpoTag: Subject<String> = new Subject<String>();
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.currentExposition = 'FALL2018';
@@ -48,15 +54,44 @@ export class ProjectsService {
     this.http.get(configUrl).subscribe((data) => {
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
-        console.log(this.projects[i]);
       }
       this.currentProjects.next(this.projects);
     });
   }
 
+  loadExpositions() {
+    this.http.get(expoUrl).subscribe((data) => {
+      for (let i = 0; i < data['data'].length; i++) {
+        this.expositions.push(data['data'][i]);
+      }
+      this.currentExpositions.next(this.expositions);
+      this.currentExpoTag.next(this.getCurrentExpositionTag());
+    });
+  }
+
+  getExpositions() {
+    return this.expositions;
+  }
+
+  setCurrentExpoisitionTag(tag) {
+    this.currentExposition = tag;
+    this.currentExpoTag.next(this.currentExposition);
+    if (this.currentExposition != null) {
+      this.getCurrExpoProjects();
+    }
+  }
+
+  isDefined<T>(value: T | undefined | null): value is T {
+    return <T>value !== undefined && <T>value !== null;
+  }
+  getCurrentExpositionTag() {
+    return this.currentExposition;
+  }
+
   getCurrExpoProjects() {
     const httpHeaders = new HttpHeaders().set('expo', this.currentExposition);
     this.http.get(configUrl + '/expo', {headers: httpHeaders}).subscribe((data) => {
+      this.projects = [];
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
       }
@@ -91,6 +126,7 @@ export class ProjectsService {
   getProjects() {
     return this.projects;
   }
+
   decodeProject(json: ProjectJSON): Project {
     return {
       title: json.name,
@@ -102,4 +138,15 @@ export class ProjectsService {
       votes: json.votes
     };
   }
+
+  // decodeExpo(json: ProjectJSON): Project {
+  //   return {
+  //     title: json.name,
+  //     teamNumber: json.teamId,
+  //     teamMembers: json.teamMembers,
+  //     _id: json._id,
+  //     description: this.des,
+  //     comments: json.comments
+  //   };
+  // }
 }

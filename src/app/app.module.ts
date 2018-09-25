@@ -29,6 +29,17 @@ import { AddProjectsComponent } from './admin/add-projects/add-projects.componen
 import { ViewResultsComponent } from './admin/view-results/view-results.component';
 import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.component';
 import { InfoViewComponent } from './voter/info-view/info-view.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { ExpoInformationComponent } from './expo-information/expo-information.component';
+
+import { AngularFileUploaderModule } from 'angular-file-uploader';
+
+import {MatTableModule} from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +54,9 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
     AddProjectsComponent,
     ViewResultsComponent,
     CreateExpoMapComponent,
-    InfoViewComponent
+    InfoViewComponent,
+    FilterPipe,
+    ExpoInformationComponent
   ],
   entryComponents: [
     VoteConfirmationDialogComponent,
@@ -65,7 +78,14 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
     MatInputModule,
     MatSnackBarModule,
     MatChipsModule,
-    FormsModule],
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    NgSelectModule,
+    SelectDropDownModule,
+    AngularFileUploaderModule,
+    MatTableModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

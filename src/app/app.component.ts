@@ -15,7 +15,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log('app on in it');
-    this.projectsService.loadProjects();
-    // this.projectsService.getCurrExpoProjects();
+    // this.projectsService.loadProjects();
+    this.projectsService.getCurrExpoProjects();
+    this.projectsService.loadExpositions();
   }
 }
