@@ -30,6 +30,11 @@ import { ViewResultsComponent } from './admin/view-results/view-results.componen
 import { CreateExpoMapComponent } from './admin/create-expo-map/create-expo-map.component';
 import { InfoViewComponent } from './voter/info-view/info-view.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +72,11 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatInputModule,
     MatSnackBarModule,
     MatChipsModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    NgSelectModule,
+    SelectDropDownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

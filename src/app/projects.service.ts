@@ -5,11 +5,14 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 import {Subject} from 'rxjs/Subject';
 import {Project} from './structs/Project';
+import {Expo} from './structs/Expo';
 import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
 import {HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 const configUrl = ' https://juniordesign.herokuapp.com/api/projects';
+const expoUrl = ' https://juniordesign.herokuapp.com/api/expositions';
 
 export interface VoteResponse {
   success: string;
@@ -36,9 +39,11 @@ export class ProjectsService {
     'lobortis condimentum nisi quis malesuada.';
 
   projects: Project[] = [];
+  expositions: Expo[] = [];
   resp;
   currentExposition: string;
   currentProjects: Subject<Project[]> = new Subject<Project[]>();
+  currentExpositions: Subject<Expo[]> = new Subject<Expo[]>();
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.currentExposition = 'FALL2018';
@@ -52,6 +57,25 @@ export class ProjectsService {
       }
       this.currentProjects.next(this.projects);
     });
+  }
+
+  loadExpositions() {
+    this.http.get(expoUrl).subscribe((data) => {
+      for (let i = 0; i < data['data'].length; i++) {
+        this.expositions.push(data['data'][i]);
+        console.log(this.expositions[i]);
+      }
+      this.currentExpositions.next(this.expositions);
+    });
+  }
+
+  getExpositions() {
+    return this.expositions;
+  }
+
+
+  getCurrentExpositionTag() {
+    return this.currentExposition;
   }
 
   getCurrExpoProjects() {
@@ -91,6 +115,7 @@ export class ProjectsService {
   getProjects() {
     return this.projects;
   }
+
   decodeProject(json: ProjectJSON): Project {
     return {
       title: json.name,
@@ -101,4 +126,15 @@ export class ProjectsService {
       comments: json.comments
     };
   }
+
+  // decodeExpo(json: ProjectJSON): Project {
+  //   return {
+  //     title: json.name,
+  //     teamNumber: json.teamId,
+  //     teamMembers: json.teamMembers,
+  //     _id: json._id,
+  //     description: this.des,
+  //     comments: json.comments
+  //   };
+  // }
 }

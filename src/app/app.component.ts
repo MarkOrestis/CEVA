@@ -17,5 +17,6 @@ export class AppComponent implements OnInit {
     console.log('app on in it');
     // this.projectsService.loadProjects();
     this.projectsService.getCurrExpoProjects();
+    this.projectsService.loadExpositions();
   }
 }
