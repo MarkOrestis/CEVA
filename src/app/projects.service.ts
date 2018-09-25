@@ -44,6 +44,7 @@ export class ProjectsService {
   currentExposition: string;
   currentProjects: Subject<Project[]> = new Subject<Project[]>();
   currentExpositions: Subject<Expo[]> = new Subject<Expo[]>();
+  currentExpoTag: Subject<String> = new Subject<String>();
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.currentExposition = 'FALL2018';
@@ -66,6 +67,7 @@ export class ProjectsService {
         console.log(this.expositions[i]);
       }
       this.currentExpositions.next(this.expositions);
+      this.currentExpoTag.next(this.getCurrentExpositionTag());
     });
   }
 
@@ -73,6 +75,11 @@ export class ProjectsService {
     return this.expositions;
   }
 
+  setCurrentExpoisitionTag(tag) {
+    this.currentExposition = tag;
+    this.currentExpoTag.next(this.currentExposition);
+    this.getCurrExpoProjects();
+  }
 
   getCurrentExpositionTag() {
     return this.currentExposition;
@@ -81,9 +88,11 @@ export class ProjectsService {
   getCurrExpoProjects() {
     const httpHeaders = new HttpHeaders().set('expo', this.currentExposition);
     this.http.get(configUrl + '/expo', {headers: httpHeaders}).subscribe((data) => {
+      this.projects = [];
       for (let i = 0; i < data['data'].length; i++) {
         this.projects.push(this.decodeProject(data['data'][i]));
       }
+      console.log(this.projects);
       this.currentProjects.next(this.projects);
     });
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectsService } from '../projects.service';
+import { Subscription } from 'rxjs/Subscription';
+
 
 @Component({
   selector: 'app-expo-information',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpoInformationComponent implements OnInit {
 
-  constructor() { }
+
+  expoName: String = '';
+
+  expoNameSubscription: Subscription;
+
+  constructor(private projectService: ProjectsService) {
+    this.expoNameSubscription = this.projectService.currentExpoTag.subscribe(expoName => {
+      this.expoName = expoName;
+    });
+  }
 
   ngOnInit() {
+    this.expoName = this.projectService.getCurrentExpositionTag();
   }
+
+
 
 }
