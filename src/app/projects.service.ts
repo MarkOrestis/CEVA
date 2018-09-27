@@ -10,6 +10,7 @@ import {ProjectJSON} from './structs/ProjectJSON';
 import {MatSnackBar} from '@angular/material';
 import {HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { JsonPipe } from '@angular/common';
 
 const configUrl = ' https://juniordesign.herokuapp.com/api/projects';
 const expoUrl = ' https://juniordesign.herokuapp.com/api/expositions';
@@ -45,6 +46,9 @@ export class ProjectsService {
   currentProjects: Subject<Project[]> = new Subject<Project[]>();
   currentExpositions: Subject<Expo[]> = new Subject<Expo[]>();
   currentExpoTag: Subject<String> = new Subject<String>();
+  currentExpoJsonSubject: Subject<any> = new Subject<any>();
+
+  currentExpoJson: any;
 
   constructor(private http: HttpClient, public snackBar: MatSnackBar) {
     this.currentExposition = 'FALL2018';
@@ -69,6 +73,19 @@ export class ProjectsService {
     });
   }
 
+  loadCurrentExpoInfo() {
+    const httpHeaders = new HttpHeaders().set('expotag', this.getCurrentExpositionTag());
+    this.http.get(expoUrl + '/expo', {headers: httpHeaders}).subscribe((data) => {
+
+      this.currentExpoJson = data;
+      console.log(this.currentExpoJson['description']);
+      this.currentExpoJsonSubject.next(this.currentExpoJson);
+    });
+  }
+
+  getCurrentExpoJson() {
+    return this.currentExpoJson;
+  }
   getExpositions() {
     return this.expositions;
   }
