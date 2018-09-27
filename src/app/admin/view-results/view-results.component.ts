@@ -39,11 +39,15 @@ export class ViewResultsComponent implements OnInit {
     }
     console.log(this.chartData);
     maxVotes += 2;
+
+    Chart.defaults.global.defaultFontSize = 25;
+
     this.chart = new Chart('canvas', {
       type: 'bar',
       data: {
         labels: this.chartNames,
         datasets: [{
+            defaultFontSize: 16,
             label: 'number of votes',
             data: this.chartData,
             backgroundColor: 'rgba(255, 0, 0, 0.5)',
@@ -52,15 +56,23 @@ export class ViewResultsComponent implements OnInit {
         }]
       },
       options: {
+        dataSets: {
+          defaultFontSize: 16
+        },
         scales: {
             yAxes: [{
               ticks: {
                   fixedStepSize: 1,
                   max: maxVotes
               }
+            }],
+            xAxes: [{
+              barPercentage: 1,
+              categoryPercentage: 0.5,
+              // categorySpacing: 0
             }]
         }
-      }
+      },
     });
   }
 
