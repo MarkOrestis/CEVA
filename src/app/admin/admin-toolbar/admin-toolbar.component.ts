@@ -53,5 +53,6 @@ export class AdminToolbarComponent implements OnInit {
   selectionChanged(event) {
     console.log(event['value'][0]);
     this.projectSvc.setCurrentExpoisitionTag(event['value'][0]);
+    // this.projectSvc.loadCurrentExpoInfo();
   }
 }
