@@ -11,29 +11,25 @@ import { Subscription } from 'rxjs/Subscription';
 export class ExpoInformationComponent implements OnInit {
 
 
-  expoName: String = '';
-
   expoNameSubscription: Subscription;
   expoJsonSubscription: Subscription;
   currentExpoJson = {};
   description: String = '';
   location: String = '';
+  expoTitle: String = '';
 
   constructor(private projectService: ProjectsService) {
     this.projectService.loadCurrentExpoInfo();
     this.currentExpoJson = this.projectService.getCurrentExpoJson();
-    this.expoNameSubscription = this.projectService.currentExpoTag.subscribe(expoName => {
-      this.expoName = expoName;
-    });
     this.expoJsonSubscription = this.projectService.currentExpoJsonSubject.subscribe(expoJson => {
       this.currentExpoJson = expoJson;
       this.description = this.currentExpoJson['description'];
       this.location = this.currentExpoJson['location'];
+      this.expoTitle = this.currentExpoJson['name'];
     });
   }
 
   ngOnInit() {
-    this.expoName = this.projectService.getCurrentExpositionTag();
   }
 
 

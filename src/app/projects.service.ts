@@ -76,9 +76,7 @@ export class ProjectsService {
   loadCurrentExpoInfo() {
     const httpHeaders = new HttpHeaders().set('expotag', this.getCurrentExpositionTag());
     this.http.get(expoUrl + '/expo', {headers: httpHeaders}).subscribe((data) => {
-
       this.currentExpoJson = data;
-      console.log(this.currentExpoJson['description']);
       this.currentExpoJsonSubject.next(this.currentExpoJson);
     });
   }
@@ -93,6 +91,7 @@ export class ProjectsService {
   setCurrentExpoisitionTag(tag) {
     this.currentExposition = tag;
     this.currentExpoTag.next(this.currentExposition);
+    this.loadCurrentExpoInfo();
     if (this.currentExposition != null) {
       this.getCurrExpoProjects();
     }
