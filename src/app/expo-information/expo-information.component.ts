@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../projects.service';
 import { Subscription } from 'rxjs/Subscription';
+import { EventService } from '../event.service';
 
 
 @Component({
@@ -10,26 +11,25 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ExpoInformationComponent implements OnInit {
 
-
-  expoNameSubscription: Subscription;
-  expoJsonSubscription: Subscription;
-  currentExpoJson = {};
-  description: String = '';
-  location: String = '';
-  expoTitle: String = '';
-
-  constructor(private projectService: ProjectsService) {
-    // this.projectService.loadCurrentExpoInfo();
-    // this.currentExpoJson = this.projectService.getCurrentExpoJson();
-    // this.expoJsonSubscription = this.projectService.currentExpoJsonSubject.subscribe(expoJson => {
-    //   this.currentExpoJson = expoJson;
-    //   this.description = this.currentExpoJson['description'];
-    //   this.location = this.currentExpoJson['location'];
-    //   this.expoTitle = this.currentExpoJson['name'];
-    // });
+  selectedEvent = {};
+  selectedEventSubscription: Subscription;
+  year = '';
+  semester = '';
+  constructor(private projectService: ProjectsService, private eventSvc: EventService) {
+    this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
+      this.selectedEvent = event;
+      this.year = event.year;
+      this.semester = event.semester;
+    });
+    this.selectedEvent = this.eventSvc.selectedEvent;
+    if (this.selectedEvent) {
+      this.year = this.eventSvc.selectedEvent.year;
+      this.semester = this.eventSvc.selectedEvent.semester;
+    }
   }
 
   ngOnInit() {
+
   }
 
 
