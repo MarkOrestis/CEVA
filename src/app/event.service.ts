@@ -26,7 +26,10 @@ export class EventService {
   selectedEvent;
   selectedEventSubject: Subject<any> = new Subject<any>();
 
-  url = 'https://juniordesign.herokuapp.com/';
+
+
+  // url = 'https://juniordesign.herokuapp.com/';
+  url = 'http://localhost:8080/';
 
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
@@ -50,7 +53,7 @@ export class EventService {
     this.amprojects = [];
     this.pmprojects = [];
     this.http.get<any[]>(this.url + 'event/teams', {headers: httpHeaders}).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       for (let j = 0; j < data[0].length; j++) {
         this.amprojects.push(data[0][j]);
       }
