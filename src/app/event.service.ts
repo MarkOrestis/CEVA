@@ -26,13 +26,15 @@ export class EventService {
   selectedEvent;
   selectedEventSubject: Subject<any> = new Subject<any>();
 
+  url = 'https://juniordesign.herokuapp.com/';
+
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
   pmprojects = [];
   pmprojectsSubject: Subject<any[]> = new Subject<any[]>();
 
   public loadEvents() {
-    this.http.get<any[]>('http://localhost:8080/event/').subscribe((data) => {
+    this.http.get<any[]>(this.url + 'event/').subscribe((data) => {
       for ( let i = 0; i < data.length; i++) {
         this.events.push(data[i]);
       }
@@ -47,7 +49,7 @@ export class EventService {
     const httpHeaders = new HttpHeaders().set('eventid', e.id);
     this.amprojects = [];
     this.pmprojects = [];
-    this.http.get<any[]>('http://localhost:8080/event/teams', {headers: httpHeaders}).subscribe((data) => {
+    this.http.get<any[]>(this.url + 'event/teams', {headers: httpHeaders}).subscribe((data) => {
       console.log(data);
       for (let j = 0; j < data[0].length; j++) {
         this.amprojects.push(data[0][j]);
@@ -74,7 +76,7 @@ export class EventService {
     formData.append('eventid', this.selectedEvent.id);
     formData.append('amsession', this.selectedEvent.amsession);
     formData.append('pmsession', this.selectedEvent.pmsession);
-    this.http.post('http://localhost:8080/event/teams', formData)
+    this.http.post(this.url + 'event/teams', formData)
     .map(res => res)
     .catch(error => Observable.throw(error))
     .subscribe(
