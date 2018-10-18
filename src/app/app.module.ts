@@ -41,6 +41,9 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import {MatTableModule} from '@angular/material/table';
 
+import { DropdownModule } from 'angular-custom-dropdown';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +88,8 @@ import {MatTableModule} from '@angular/material/table';
     NgSelectModule,
     SelectDropDownModule,
     AngularFileUploaderModule,
-    MatTableModule
+    MatTableModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,13 @@
 <mat-toolbar color="primary">
   <span>CEVA Administrator</span>
-  <div class="dropdown-div">
-    <ngx-select-dropdown (change)="selectionChanged($event)" [multiple]="false" [(value)]="dataModel" [config]="config" [options]="expositionNames"></ngx-select-dropdown>
+  <div class="dropdown" dropdown>
+      <h1 class="dropdown-toggle" dropdownToggle>{{selectedEvent.semester}} {{selectedEvent.year}} </h1>
+      <ul class="dropdown-menu" dropdownMenu>
+          <li *ngFor="let event of events">
+              <a (click)="clickedMenuItem(event)" dropdownToggle class="neat" rel="noopener" target="_blank">{{event.semester}} {{event.year}}</a>
+          </li>
+      </ul>
   </div>
-
   <span class="example-spacer"></span>
   <span>
       <button mat-button routerLink="expo/information">
@@ -26,5 +30,9 @@
   </button>
   </span>
 </mat-toolbar>
+
+<!-- <div *ngFor="let event of events">
+  {{ event }}
+</div> -->
 
 <router-outlet></router-outlet>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../projects.service';
 import { Subscription } from 'rxjs/Subscription';
 
+import { EventService } from '../../event.service';
+
 @Component({
   selector: 'app-admin-toolbar',
   templateUrl: './admin-toolbar.component.html',
@@ -11,48 +13,54 @@ export class AdminToolbarComponent implements OnInit {
   selected = 'option2';
   cities = [];
 
-  selectedCity: any;
-  selectedCityIds: string[];
-  selectedCityName = 'Vilnius';
-  selectedCityId: number;
-  selectedUserIds: number[];
 
-  subscription: Subscription;
+  events = [];
+  eventsSubscription: Subscription;
+
+  selectedEvent = {};
+  selectedEventSubscription: Subscription;
+
 
   dataModel = [];
 
   expositions = [];
-  expositionNames = [];
+  eventNames = [];
+
+
   config = {
     displayKey: 'description',
     search: true,
     height: 'auto',
     placeholder: 'Select',
     customComparator: () => {},
-    limitTo: this.cities.length
+    limitTo: 50
   };
 
-  constructor(private projectSvc: ProjectsService) {
-    this.subscription = this.projectSvc.currentExpositions.subscribe(expos => {
-      this.expositions = expos;
-      this.expositionNames = [];
-      for ( const e of this.expositions) {
-        this.expositionNames.push(e['name']);
-    }
+
+
+
+  constructor(private eventSvc: EventService) {
+    this.eventsSubscription = this.eventSvc.eventsSubject.subscribe( events => {
+      for (const e of events) {
+        this.events.push(e);
+      }
     });
+
+    this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
+      this.selectedEvent = event;
+      console.log(this.selectedEvent);
+    });
+
   }
+
+  clickedMenuItem(stuff) {
+    this.eventSvc.setSelectedEvent(stuff);
+  }
+
+
+
 
   ngOnInit() {
-    const p = this.projectSvc.getExpositions();
-    for ( const e of this.expositions) {
-        this.expositionNames.push(e['name']);
-    }
-    this.dataModel.push(this.projectSvc.getCurrentExpositionTag());
-  }
 
-  selectionChanged(event) {
-    console.log(event['value'][0]);
-    this.projectSvc.setCurrentExpoisitionTag(event['value'][0]);
-    // this.projectSvc.loadCurrentExpoInfo();
   }
 }
