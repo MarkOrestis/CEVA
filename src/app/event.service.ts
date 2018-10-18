@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
+import {RequestOptions, Request, RequestMethod} from '@angular/http';
+import {Observable,of, from } from 'rxjs';
+
+import {map} from 'rxjs/operators';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +23,7 @@ export class EventService {
   events = [];
   eventsSubject: Subject<any[]> = new Subject<any[]>();
 
-  selectedEvent = '';
+  selectedEvent;
   selectedEventSubject: Subject<any> = new Subject<any>();
 
   amprojects = [];
@@ -57,6 +64,30 @@ export class EventService {
 
   public getSelectedEvent() {
     return this.selectedEvent;
+  }
+
+  public uploadTeams(event) {
+    const fileList = event.target.files;
+    const file: File = fileList[0];
+    const formData: FormData = new FormData();
+    formData.append('uploadFile', file, file.name);
+    formData.append('eventid', this.selectedEvent.id);
+    formData.append('amsession', this.selectedEvent.amsession);
+    formData.append('pmsession', this.selectedEvent.pmsession);
+    this.http.post('http://localhost:8080/event/teams', formData)
+    .map(res => res)
+    .catch(error => Observable.throw(error))
+    .subscribe(
+        data => {
+          console.log('success');
+          this.setSelectedEvent(this.selectedEvent);
+        }
+        ,
+        error => console.log(error)
+    );
+    // this.http.post<any>('http://localhost:8080/event/teams', fileList[0]).subscribe((data) => {
+    //   console.log(data);
+    // });
   }
 
 }
