@@ -1,9 +1,36 @@
 
 <div class="expo-info-div">
-  <p>
-      {{semester}}
-  </p>
-  <p>
-      {{year}}
-  </p>  
+  <div class="info-header">
+      {{semester}} {{year}}
+  </div>
+  
+    <table id="numprojects">
+            <tr>
+              <th>Session</th>
+              <th># Projects</th>
+            </tr>
+            <tr>
+                <td>AM</td>
+                <td>
+                    <div *ngIf="numam">  
+                        {{numam}}
+                    </div>  
+                    <div *ngIf="!numam">  
+                        0
+                    </div>  
+                </td>
+            </tr>
+            <tr>
+                <td>PM</td>
+                <td>
+                    <div *ngIf="numpm">
+                        {{numpm}}
+                    </div>  
+                    <div *ngIf="!numpm">
+                            0
+                    </div>  
+                </td>
+            </tr>
+    </table>
+
 </div>

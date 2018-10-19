@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
-  <span>CEVA Administrator</span>
+  <span>CEVA Admin</span>
   <div class="dropdown" dropdown>
-      <h1 class="dropdown-toggle" dropdownToggle>{{selectedEvent.semester}} {{selectedEvent.year}} </h1>
+      <h1 class="dropdown-toggle" dropdownToggle>Exposition: {{selectedEvent.semester}} {{selectedEvent.year}} <div class="down-arrow">▼</div> </h1>
       <ul class="dropdown-menu" dropdownMenu>
           <li *ngFor="let event of events">
               <a (click)="clickedMenuItem(event)" dropdownToggle class="neat" rel="noopener" target="_blank">{{event.semester}} {{event.year}}</a>
