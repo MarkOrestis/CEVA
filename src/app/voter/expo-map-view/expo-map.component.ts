@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpoMapComponent implements OnInit {
 
+
+  selected = 1;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  clickedRect(select) {
+    if (this.selected === select) {
+      this.selected = -1;
+    } else {
+      this.selected = select;
+    }
   }
 
 }

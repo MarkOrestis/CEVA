@@ -5,9 +5,21 @@
 }
 
 
-g>path:hover {
+// g>path:hover {
+//     fill: red;
+// }
+// g>path {
+//     fill: black;
+// }
+
+// g>rect:hover {
+//     fill: red;
+// }
+
+.fillred {
     fill: red;
 }
-g>path {
-    fill: black;
+
+.fillwhite {
+    fill:white;
 }
