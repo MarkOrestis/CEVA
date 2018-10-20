@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { EventService } from '../../event.service';
 
 @Component({
   selector: 'app-info-view',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoViewComponent implements OnInit {
 
-  constructor() { }
+
+
+  selectedEventSubscription: Subscription;
+  selectedEvent = {};
+
+
+  constructor(private eventSvc: EventService) {
+    this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
+      this.selectedEvent = event;
+    });
+    this.selectedEvent = this.eventSvc.getSelectedEvent();
+  }
 
   ngOnInit() {
   }

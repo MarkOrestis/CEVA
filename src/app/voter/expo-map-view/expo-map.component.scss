@@ -3,3 +3,11 @@
     max-width: 100%;
     margin-top: 8%;
 }
+
+
+g>path:hover {
+    fill: red;
+}
+g>path {
+    fill: black;
+}

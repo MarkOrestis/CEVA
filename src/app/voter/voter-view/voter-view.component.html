@@ -1,11 +1,11 @@
-<mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
+<mat-button-toggle-group class="toggle-switch" #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
     <mat-button-toggle value="option1">
       AM
     </mat-button-toggle>
     <mat-button-toggle value="option2">
       PM
     </mat-button-toggle>
-  </mat-button-toggle-group>
+</mat-button-toggle-group>
 
 <div [ngSwitch]="tabIndex" class="main-content-div">
 
@@ -34,11 +34,6 @@
       </div>
     </ng-template>
   </mat-tab>
-
-  
-
-
-
   <mat-tab aria-label="About">
     <ng-template mat-tab-label>
       <div layout="row">
