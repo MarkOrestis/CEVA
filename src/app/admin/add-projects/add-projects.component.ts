@@ -35,6 +35,9 @@ export class AddProjectsComponent implements OnInit {
   pmprojects = [];
   pmprojectsSubscription: Subscription;
 
+  selectedEvent;
+  selectedEventSubscription: Subscription;
+
   projects = [];
 
   constructor(private projectService: ProjectsService, private eventSvc: EventService) {
@@ -43,7 +46,6 @@ export class AddProjectsComponent implements OnInit {
       for ( const e of projects) {
         this.amprojects.push(e);
       }
-      console.log(this.amprojects);
     });
     this.pmprojectsSubscription = this.eventSvc.pmprojectsSubject.subscribe(projects => {
       this.pmprojects = [];
@@ -51,10 +53,14 @@ export class AddProjectsComponent implements OnInit {
         this.pmprojects.push(e);
       }
     });
+    this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
+      this.selectedEvent = event;
+    });
+    this.amprojects = this.eventSvc.amprojects;
+    this.pmprojects = this.eventSvc.pmprojects;
    }
 
   ngOnInit() {
-
   }
 
 

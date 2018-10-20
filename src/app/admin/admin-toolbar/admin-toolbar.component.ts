@@ -48,7 +48,7 @@ export class AdminToolbarComponent implements OnInit {
 
     this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
       this.selectedEvent = event;
-      console.log(this.selectedEvent);
+      // console.log(this.selectedEvent);
     });
 
   }

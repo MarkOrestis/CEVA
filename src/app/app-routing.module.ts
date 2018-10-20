@@ -7,7 +7,8 @@ import {AuthServiceService as Auth} from './auth-service.service';
 import {CreateExpoMapComponent} from './admin/create-expo-map/create-expo-map.component';
 import {ViewResultsComponent} from './admin/view-results/view-results.component';
 import {AddProjectsComponent} from './admin/add-projects/add-projects.component';
-import {ExpoInformationComponent} from './expo-information/expo-information.component';
+// import {ExpoInformationComponent} from '.admin/expo-information/expo-information.component';
+import {ExpoInformationComponent} from '../app/admin/expo-information/expo-information.component';
 
 const routes: Routes = [
   {path: 'admin',

@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
-import {Observable,of, from } from 'rxjs';
+import {Observable, of, from } from 'rxjs';
 
 import {map} from 'rxjs/operators';
 import 'rxjs/add/operator/map';
@@ -26,13 +26,19 @@ export class EventService {
   selectedEvent;
   selectedEventSubject: Subject<any> = new Subject<any>();
 
-  url = 'https://juniordesign.herokuapp.com/';
+
+
+  // url = 'https://juniordesign.herokuapp.com/';
+  url = 'http://localhost:8080/';
 
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
   pmprojects = [];
   pmprojectsSubject: Subject<any[]> = new Subject<any[]>();
-
+  numam = 0;
+  numamsub: Subject<number> = new Subject<number>();
+  numpm = 0;
+  numpmsub: Subject<number> = new Subject<number>();
   public loadEvents() {
     this.http.get<any[]>(this.url + 'event/').subscribe((data) => {
       for ( let i = 0; i < data.length; i++) {
@@ -45,20 +51,34 @@ export class EventService {
     });
   }
 
+  getamProjects() {
+    return this.amprojects;
+  }
+
+  getpmProjects() {
+    return this.pmprojects;
+  }
+
   public setSelectedEvent(e) {
     const httpHeaders = new HttpHeaders().set('eventid', e.id);
     this.amprojects = [];
     this.pmprojects = [];
+    this.numam = 0;
+    this.numpm = 0;
     this.http.get<any[]>(this.url + 'event/teams', {headers: httpHeaders}).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
       for (let j = 0; j < data[0].length; j++) {
         this.amprojects.push(data[0][j]);
+        this.numam += 1;
       }
       for (let j = 0; j < data[1].length; j++) {
         this.pmprojects.push(data[1][j]);
+        this.numpm += 1;
       }
       this.amprojectsSubject.next(this.amprojects);
       this.pmprojectsSubject.next(this.pmprojects);
+      this.numamsub.next(this.numam);
+      this.numpmsub.next(this.numpm);
     });
     this.selectedEvent = e;
     this.selectedEventSubject.next(this.selectedEvent);
