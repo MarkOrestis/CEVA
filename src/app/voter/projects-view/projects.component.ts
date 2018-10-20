@@ -4,6 +4,8 @@ import {VoteConfirmationDialogComponent} from '../../components/vote-confirmatio
 import {ProjectsService} from '../../projects.service';
 import {Project} from '../../structs/Project';
 import {CommentConfirmationDialogComponent} from '../../components/comment-confirmation-dialog/comment-confirmation-dialog.component';
+import { EventService } from '../../event.service';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-projects',
@@ -11,16 +13,24 @@ import {CommentConfirmationDialogComponent} from '../../components/comment-confi
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-
-  constructor(public dialog: MatDialog, private projectService: ProjectsService) { }
+  amprojectsSubscription: Subscription;
+  amprojects = [];
+  pmprojectsSubscription: Subscription;
+  pmprojects = [];
 
   projects: Project[];
+  constructor(public dialog: MatDialog, private projectService: ProjectsService, private evtSvc: EventService) {
 
+    this.amprojectsSubscription = this.evtSvc.amprojectsSubject.subscribe(amprojs => {
+      this.amprojects = amprojs;
+    });
+    this.pmprojectsSubscription = this.evtSvc.pmprojectsSubject.subscribe(pmprojs => {
+      this.amprojects = pmprojs;
+    });
+  }
   ngOnInit() {
-    const p = this.projectService.getProjects();
-    if (p.length > 1) {
-      this.projects = p;
-    }
+    this.amprojects = this.evtSvc.getamProjects();
+    this.pmprojects = this.evtSvc.getpmProjects();
   }
 
   castVote(project): void {

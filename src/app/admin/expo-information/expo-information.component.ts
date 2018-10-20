@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../projects.service';
-import { Subscription } from 'rxjs/Subscription';
-import { EventService } from '../event.service';
 
+import { Subscription } from 'rxjs/Subscription';
+import { EventService } from '../../event.service';
+// import {ProjectService} from '../../projects.service';
 
 @Component({
   selector: 'app-expo-information',
@@ -19,7 +19,7 @@ export class ExpoInformationComponent implements OnInit {
   numamEventSubscription: Subscription;
   numpm;
   numpmEventSubscription: Subscription;
-  constructor(private projectService: ProjectsService, private eventSvc: EventService) {
+  constructor(private eventSvc: EventService) {
     this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
       this.selectedEvent = event;
       this.year = event.year;

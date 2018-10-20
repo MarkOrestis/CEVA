@@ -4,7 +4,7 @@ import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {RequestOptions, Request, RequestMethod} from '@angular/http';
-import {Observable,of, from } from 'rxjs';
+import {Observable, of, from } from 'rxjs';
 
 import {map} from 'rxjs/operators';
 import 'rxjs/add/operator/map';
@@ -49,6 +49,14 @@ export class EventService {
       this.eventsSubject.next(this.events);
       this.selectedEventSubject.next(this.selectedEvent);
     });
+  }
+
+  getamProjects() {
+    return this.amprojects;
+  }
+
+  getpmProjects() {
+    return this.pmprojects;
   }
 
   public setSelectedEvent(e) {
