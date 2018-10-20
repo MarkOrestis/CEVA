@@ -1,13 +1,22 @@
 <div [ngSwitch]="tabIndex" class="main-content-div">
 
-  <app-expo-map *ngSwitchCase="0"></app-expo-map>
-  <app-projects *ngSwitchCase="1"></app-projects>
+  
+  <app-projects *ngSwitchCase="0"></app-projects>
+  <app-expo-map *ngSwitchCase="1"></app-expo-map>
   <app-info-view *ngSwitchCase="2"></app-info-view>
 </div>
 
 <mat-tab-group mat-stretch-tabs class="icon-tab-bar" headerPosition="below" [dynamicHeight]="false"
   (selectedIndexChange)="setTabIndex($event)">
 
+  <mat-tab aria-label="Projects">
+      <ng-template mat-tab-label>
+        <div>
+          <mat-icon>list</mat-icon>
+          <h6 class="tab-text">Projects</h6>
+        </div>
+      </ng-template>
+    </mat-tab>
   <mat-tab aria-label="Expo Map">
     <ng-template mat-tab-label>
       <div>
@@ -17,14 +26,7 @@
     </ng-template>
   </mat-tab>
 
-  <mat-tab aria-label="Projects">
-    <ng-template mat-tab-label>
-      <div>
-        <mat-icon>list</mat-icon>
-        <h6 class="tab-text">Projects</h6>
-      </div>
-    </ng-template>
-  </mat-tab>
+  
 
 
 
