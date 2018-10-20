@@ -1,3 +1,12 @@
+<mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
+    <mat-button-toggle value="option1">
+      AM
+    </mat-button-toggle>
+    <mat-button-toggle value="option2">
+      PM
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+
 <div [ngSwitch]="tabIndex" class="main-content-div">
 
   
