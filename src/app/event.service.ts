@@ -16,16 +16,15 @@ import 'rxjs/add/operator/catch';
 })
 export class EventService {
 
-  constructor(private http: HttpClient) {
-    this.loadEvents();
-  }
-
+  
   events = [];
   eventsSubject: Subject<any[]> = new Subject<any[]>();
 
   selectedEvent;
   selectedEventSubject: Subject<any> = new Subject<any>();
 
+  voterViewingSession: string;
+  voterViewingSessionSubject: Subject<string> = new Subject<string>();
 
 
   // url = 'https://juniordesign.herokuapp.com/';
@@ -39,6 +38,15 @@ export class EventService {
   numamsub: Subject<number> = new Subject<number>();
   numpm = 0;
   numpmsub: Subject<number> = new Subject<number>();
+
+  constructor(private http: HttpClient) {
+    this.loadEvents();
+    this.voterViewingSession = 'am';
+    this.voterViewingSessionSubject.next(this.voterViewingSession);
+  }
+
+
+
   public loadEvents() {
     this.http.get<any[]>(this.url + 'event/').subscribe((data) => {
       for ( let i = 0; i < data.length; i++) {
@@ -51,6 +59,15 @@ export class EventService {
     });
   }
 
+
+  changeVoterViewingSession(session) {
+    this.voterViewingSession = session;
+    this.voterViewingSessionSubject.next(this.voterViewingSession);
+  }
+
+  getVoterViewingSession() {
+    return this.voterViewingSession;
+  }
   getamProjects() {
     return this.amprojects;
   }

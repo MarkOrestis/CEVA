@@ -33,6 +33,8 @@ import { InfoViewComponent } from './voter/info-view/info-view.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { NgSelectModule } from '@ng-select/ng-select';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+
 
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { ExpoInformationComponent } from './admin/expo-information/expo-information.component';
@@ -89,7 +91,8 @@ import { DropdownModule } from 'angular-custom-dropdown';
     SelectDropDownModule,
     AngularFileUploaderModule,
     MatTableModule,
-    DropdownModule
+    DropdownModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
