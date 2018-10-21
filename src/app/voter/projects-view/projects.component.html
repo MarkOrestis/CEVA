@@ -1,21 +1,24 @@
 <div>
-  <div>
-    <mat-form-field class = "search-form">
-      <input matInput [(ngModel)]="searchText" placeholder="Search Here">
-      <!-- <mat-icon class = "magnifying-glass">mode_search</mat-icon> -->
-    </mat-form-field>
+  <div class="am-pm-switch-div">
+    <div class="am-pm-switch">
+        <mat-form-field class = "search-form">
+            <input matInput [(ngModel)]="searchText" placeholder="Search Here">
+            <!-- <mat-icon class = "magnifying-glass">mode_search</mat-icon> -->
+          </mat-form-field>
+    </div>
+    
   </div>
   <mat-expansion-panel *ngFor="let project of projects | filter: searchText">
       <mat-expansion-panel-header>
-        <mat-panel-title>{{project.title}}</mat-panel-title>
+        <mat-panel-title>{{project.name}}</mat-panel-title>
       </mat-expansion-panel-header>
         <div layout="column">
-          <h4>{{project.teamNumber}}</h4>
+          <h4>{{project.teamnumber}}</h4>
           <div>{{project.description}}</div>
           <br>
           <div class="team-members-div">
-            Team Memebers:
-            {{project.teamMembers.toString()}}
+            <!-- Team Memebers: -->
+            <!-- {{project.teamMembers.toString()}} -->
             <!--<li *ngFor="let members of project.teamMembers">-->
               <!--{{members}}-->
             <!--</li>-->

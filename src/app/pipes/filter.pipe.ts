@@ -10,7 +10,7 @@ export class FilterPipe implements PipeTransform {
     //   return [];
     // }
     // console.log('supper');
-    console.table(items);
+    // console.table(items);
     // const items = someData.filter(x => x.title);
     // console.log(items[0]);
     // console.log(items[1]);

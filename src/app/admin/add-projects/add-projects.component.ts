@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../structs/Project';
 import { ProjectsService } from '../../projects.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Subject } from 'rxjs';
+import { EventService } from '../../event.service';
 
+import * as XLSX from 'xlsx';
 
 
 @Component({
@@ -20,24 +23,48 @@ export class AddProjectsComponent implements OnInit {
       url: 'https://example-file-upload-api'
     }
   };
+  data;
 
   projectsSubscription: Subscription;
 
-  projects: Project[] = [];
-  projectColumns: string[] = ['number', 'name'];
+  // projects: Project[] = [];
+  projectColumns: string[] = ['number', 'section', 'session', 'name'];
 
-  constructor(private projectService: ProjectsService) {
-    this.projectsSubscription = this.projectService.currentProjects.subscribe(projects => {
-      this.projects = [];
+  amprojects = [];
+  amprojectsSubscription: Subscription;
+  pmprojects = [];
+  pmprojectsSubscription: Subscription;
+
+  selectedEvent;
+  selectedEventSubscription: Subscription;
+
+  projects = [];
+
+  constructor(private projectService: ProjectsService, private eventSvc: EventService) {
+    this.amprojectsSubscription = this.eventSvc.amprojectsSubject.subscribe(projects => {
+      this.amprojects = [];
       for ( const e of projects) {
-        this.projects.push(e);
+        this.amprojects.push(e);
       }
-      console.log(this.projects);
     });
+    this.pmprojectsSubscription = this.eventSvc.pmprojectsSubject.subscribe(projects => {
+      this.pmprojects = [];
+      for ( const e of projects) {
+        this.pmprojects.push(e);
+      }
+    });
+    this.selectedEventSubscription = this.eventSvc.selectedEventSubject.subscribe(event => {
+      this.selectedEvent = event;
+    });
+    this.amprojects = this.eventSvc.amprojects;
+    this.pmprojects = this.eventSvc.pmprojects;
    }
 
   ngOnInit() {
-    this.projects = this.projectService.projects;
   }
 
+
+  fileChosen(evt) {
+    this.eventSvc.uploadTeams(evt);
+  }
 }

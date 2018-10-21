@@ -1,12 +1,16 @@
-<div class="file-uploaded-div">
+<!-- <div class="file-uploaded-div">
     <angular-file-uploader 
         [config]="afuConfig">
     </angular-file-uploader>
+</div> -->
+
+<input id="my-file-selector" type="file" (change)="fileChosen($event)" name="uploadExcel">
+
+<div>
+    <h5>AM PROJECTS</h5>
 </div>
-
-
 <div class="table-view">
-    <table mat-table [dataSource]="projects" class="mat-elevation-z8">
+    <table mat-table [dataSource]="amprojects" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -14,17 +18,76 @@
         <!-- Position Column -->
         <ng-container matColumnDef="number">
           <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.teamNumber}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.teamnumber}} </td>
         </ng-container>
 
         <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        
+        <ng-container matColumnDef="section">
+                <th mat-header-cell *matHeaderCellDef> Section </th>
+                <td mat-cell *matCellDef="let element"> {{element.section}} </td>
         </ng-container>
-      
+        <ng-container matColumnDef="session">
+                <th mat-header-cell *matHeaderCellDef> Session </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.ampm === 'am' ">
+                        AM
+                    </div>
+                    <div *ngIf="element.ampm === 'pm' ">
+                        PM
+                    </div>
+                </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
         <tr mat-header-row *matHeaderRowDef="projectColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: projectColumns;"></tr>
       </table>
+</div>
+<br>
+<br>
+<hr>
+<div>
+    <h5>PM PROJECTS</h5>
+</div>
+<div class="table-view">
+    
+        <table mat-table [dataSource]="pmprojects" class="mat-elevation-z8">
+    
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="number">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.teamnumber}} </td>
+            </ng-container>
+    
+            <!-- Name Column -->
+            
+            <ng-container matColumnDef="section">
+                    <th mat-header-cell *matHeaderCellDef> Section </th>
+                    <td mat-cell *matCellDef="let element"> {{element.section}} </td>
+            </ng-container>
+            <ng-container matColumnDef="session">
+                    <th mat-header-cell *matHeaderCellDef> Session </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div *ngIf="element.ampm === 'am' ">
+                            AM
+                        </div>
+                        <div *ngIf="element.ampm === 'pm' ">
+                            PM
+                        </div>
+                    </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+            <tr mat-header-row *matHeaderRowDef="projectColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: projectColumns;"></tr>
+          </table>
 </div>
 
