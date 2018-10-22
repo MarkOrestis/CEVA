@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
 
   voterViewingSession: string;
   voterViewingSessionSubscription: Subscription;
-
+  searchText = '';
   projects: Project[];
   constructor(public dialog: MatDialog, private projectService: ProjectsService, private evtSvc: EventService) {
 
