@@ -29,7 +29,7 @@ export class EventService {
 
   url = 'https://juniordesign.herokuapp.com/';
   // url = 'http://localhost:8080/';
-  
+
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
   pmprojects = [];
