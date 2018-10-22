@@ -23,7 +23,7 @@ export class FilterPipe implements PipeTransform {
     // console.log('Filter Pipe Testing');
 searchText = searchText.toLowerCase();
 return items.filter( it => {
-      return it.title.toString().toLowerCase().includes(searchText); // Searches specifically for title of project.
+      return it.name.toString().toLowerCase().includes(searchText); // Searches specifically for title of project.
     });
    }
 }
