@@ -16,7 +16,7 @@ import 'rxjs/add/operator/catch';
 })
 export class EventService {
 
-  
+
   events = [];
   eventsSubject: Subject<any[]> = new Subject<any[]>();
 
@@ -27,8 +27,8 @@ export class EventService {
   voterViewingSessionSubject: Subject<string> = new Subject<string>();
 
 
-  // url = 'https://juniordesign.herokuapp.com/';
-  url = 'http://localhost:8080/';
+  url = 'https://juniordesign.herokuapp.com/';
+  // url = 'http://localhost:8080/';
 
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
