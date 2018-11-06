@@ -54,11 +54,6 @@ export class ViewResultsComponent implements OnInit {
     const w = svg.attr('width');
     const h = svg.attr('height');
 
-
-    const barWidth = 55;
-    const widthMargin = 95;
-    const heightMargin = 68;
-
     const chart = svg.append('g')
     .attr('transform', 'translate(60, 60)');
 
@@ -70,50 +65,81 @@ export class ViewResultsComponent implements OnInit {
     const yScale = d3.scaleLinear()
       .domain([0, 10]).range([500, 0]);
 
-    const xScale = d3.scaleLinear()
-      .domain([1, 60]).range([0, 800]);
+    // const xScale = d3.scaleLinear()
+      // .domain([1, 60]).range([0, 800]);
+
+    const xScale = d3.scaleBand()
+      .range([0, w - 100])
+      .domain(amProjectsNames.map((s) => s.key))
+      .padding(0.2);
 
 
+    // console.log(this.testArrayNames);
     const yAxis = d3.axisLeft(yScale)
-      .ticks(1);
+      .ticks(10);
 
     const xAxis = d3.axisBottom(xScale)
-      .ticks(amProjectsNames.length)
-      .tickFormat((d, i) => amProjectsNames[i].key);
+      .ticks(30);
+    // const xAxis = d3.axisBottom(xScale)
+    //   .ticks(amProjectsNames.length)
+    //   .tickFormat((d, i) => this.testArrayNames[i]);
 
     chart.append('g')
-      .call(d3.axisLeft(yScale).ticks(10));
-
+      .call(yAxis);
     chart.append('g')
-      .attr('class', 'xAxis')
+      .attr('transform', 'translate(0, 500)')
       .call(xAxis)
-      .attr('transform', 'translate(0,500)')
       .selectAll('text')
-      .attr('transform', 'rotate(90)')
-      .attr('y', 0)
-      .attr('x', 9)
-      .attr('dy', '.35em')
-      .style('text-anchor', 'start');
-
+        .attr('transform', 'rotate(90)')
+        .attr('y', 0)
+        .attr('x', 9)
+        .attr('dy', '.35em')
+        .style('text-anchor', 'start');
 
     chart.selectAll()
       .data(amProjectsNames)
       .enter()
+      .append('g')
       .append('rect')
-      .attr('y', (s) => yScale(amProjectsNames[0].value))
-      .attr('height', (s) => h - yScale(amProjectsNames[0].value))
-      .attr('width', w / amProjectsNames.length - 20);
+      .attr('class', 'bar')
+      .attr('x', (s) => xScale(s.key))
+      .attr('y', (s) => yScale(s.value + 2))
+      .attr('height', (s) => h - yScale(s.value + 2) - 250)    // +2 to have a better graph for testing
+      .attr('width', xScale.bandwidth())
+      .style('fill', '80cbc4');
 
-    // d3.select('svg')
-    //   .selectAll()
-    //   .data(amProjectsNames)
-    //   .enter()
-    //   .append('rect')
-    //   .attr('x', 
+    svg.append('text')
+      .attr('x', -(h / 2) + 60)
+      .attr('y', 60 / 2.4)
+      .attr('transform', 'rotate(-90)')
+      .attr('text-anchor', 'middle')
+      .text('Votes');
+
+    svg.append('text')
+      .attr('x', w / 2)
+      .attr('y', 40)
+      .attr('text-anchor', 'middle')
+      .text('Capstone Exposition Results');
 
 
-    console.log(amProjectsNames);
-    console.log(amProjectsNames.length);
+    // chart.append('g')
+    //   .attr('class', 'grid')
+    //   .attr('transform', 'translate(0, 750)')
+    //   .call(d3.axisBottom()
+    //       .scale(xScale)
+    //       .tickSize(-h, 0, 0)
+    //       .tickFormat(''));
+
+    chart.append('g')
+      .attr('class', 'grid')
+      .call(d3.axisLeft()
+          .scale(yScale)
+          .tickSize(-w + 100, 0, 0)
+          .tickFormat(''));
+
+
+    // console.log(amProjectsNames[0].value);
+    // console.log(amProjectsNames.length);
 
   }
 
@@ -163,6 +189,8 @@ export class ViewResultsComponent implements OnInit {
 
   ngOnInit() {
     // this.loadAMResults(this.amprojects);
+
+    this.d3TestGraph(this.amprojects);
   }
 
 }
