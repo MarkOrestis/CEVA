@@ -8,9 +8,10 @@
     </div>
     
   </div>
+  <div class = "fixed-panel-size bgcolor round-test">
   <mat-expansion-panel *ngFor="let project of projects | filter: searchText">
-      <mat-expansion-panel-header>
-        <mat-panel-title>{{project.name}}</mat-panel-title>
+      <mat-expansion-panel-header class = "bgcolor">
+        <mat-panel-title class = "panel-title">{{project.name}}</mat-panel-title>
       </mat-expansion-panel-header>
         <div layout="column">
           <h4>{{project.teamnumber}}</h4>
@@ -36,5 +37,6 @@
         </button>
       </mat-action-row>
     </mat-expansion-panel>
+    </div>
 </div>
 

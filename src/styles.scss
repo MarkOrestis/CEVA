@@ -3,7 +3,55 @@
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import "~ngx-select-dropdown/dist/assets/style.css";
 
-
 body {
   margin: 8px;
 }
+html {
+  // background-color: orange;
+
+}
+
+.fixed-panel-size{
+  overflow-y: scroll;
+  height: 90vh;
+  background-color: transparent;
+}
+.round-test {
+  padding: 10px;
+  border: 0px groove transparent;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+}
+.bgcolor {
+  background-color: transparent;
+}
+.mat-expansion-panel,
+.mat-expansion-panel-header,
+//.mat-expansion-panel-header-expanded,
+.mat-expansion-panel-header-collapsed,
+//.mat-expansion-panel-header.mat-collapsed,
+.mat-expansion-panel-header.mat-expanded,
+//.mat-expansion-panel-header.mat-collapsed:hover,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background:#66a1ee !important;
+  //color:white !important;
+  border: 2px none red;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  font-family: "Palatino Header", Times, serif;
+}
+.mat-expansion-panel {
+  background:transparent !important;
+  border: 5px hidden transparent !important;
+}
+.mat-button-toggle-group {
+  position: absolute;
+  float: right;
+  background: #66a1ee;
+  color: white;
+}
+.mat-button-toggle-checked {
+  background: black;
+  color: white;
+}
+//#66a1ee
