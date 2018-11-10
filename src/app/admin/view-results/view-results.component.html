@@ -1,15 +1,13 @@
-<!-- <div [hidden] = "!chart">
-    <canvas id="canvas">{{ chart }}</canvas>
-</div> -->
-
-<body>
-    <div>
-        <svg id="container" width="1000" height="750" style="border: 1px solid #777;">
-        </svg>
-    </div>
-</body>
-<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-
-
+<mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)">
+        <mat-button-toggle value="option1">
+          AM
+        </mat-button-toggle>
+        <mat-button-toggle value="option2">
+          PM
+        </mat-button-toggle>
+</mat-button-toggle-group>
+<div [hidden] = "!chart" class="chart-container">
+        <canvas id="canvas">{{ chart }}</canvas>
+</div>
 
 

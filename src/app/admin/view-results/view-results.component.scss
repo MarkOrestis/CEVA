@@ -1,6 +1,7 @@
 canvas {
-    height: 500px !important;
-    width: 900px !important;
+    // border: 1px dotted red;
+    // height: 500px !important;
+    // width: 900px !important;
 }
 
 
@@ -16,3 +17,10 @@ body div svg text {
     font-size: 12px;
     fill: #fff;
   }
+
+.chart-container{
+    position: relative;
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
+}
