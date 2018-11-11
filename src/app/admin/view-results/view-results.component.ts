@@ -11,6 +11,7 @@ import { EventService } from 'src/app/event.service';
 })
 export class ViewResultsComponent implements OnInit {
 
+  static ohmy: Number = 0;
   amprojects = [];
   amprojectsSubscription: Subscription;
   pmprojects = [];
@@ -20,61 +21,65 @@ export class ViewResultsComponent implements OnInit {
   chartData = [];
   chart: any = [];
   maxVotes: number;
-  public selectedVal: string;
+  selVal: string;
 
   temp_votes: number;
   temp_teamName: string;
 
-  constructor(private projectService: ProjectsService, private eventSvc: EventService) {}
+  constructor(private projectService: ProjectsService, private eventSvc: EventService) { }
 
   ngOnInit() {
-    this.selectedVal = 'option1';
+    this.selVal = 'option1';
     this.amprojects = this.eventSvc.getamProjects();
     this.pmprojects = this.eventSvc.getpmProjects();
-    // if (this.eventSvc.getVoterViewingSession() === 'am') {
-    //   console.log('am');
-    //   this.projects = this.amprojects;
-    //   console.log(this.projects)
-    // } else if (this.eventSvc.getVoterViewingSession() === 'pm') {
-    //   console.log('pm');
-    //   this.projects = this.pmprojects;
-    // }
-
-
-    this.amprojectsSubscription = this.eventSvc.amprojectsSubject.subscribe(projects => {
-      console.log(this.eventSvc.amprojectsSubject);
-      this.loadAMResults(this.eventSvc.amprojects);
+    if (this.eventSvc.getVoterViewingSession() === 'am') {
+      this.projects = this.amprojects;
+      console.log('0', this.projects);
+    } else if (this.eventSvc.getVoterViewingSession() === 'pm') {
+      console.log('pm');
+      this.projects = this.pmprojects;
+    }
+    // happens only once when you first load the page
+    this.amprojectsSubscription = this.eventSvc.amprojectsSubject.subscribe(() => {
+      console.log('1', this.eventSvc.amprojects);
+      // defaults to loading am results first
+      this.loadResults(this.eventSvc.amprojects, 'AM');
     });
     this.pmprojectsSubscription = this.eventSvc.pmprojectsSubject.subscribe(projects => {
       this.pmprojects = [];
-      for ( const e of projects) {
+      for (const e of projects) {
         this.pmprojects.push(e);
       }
     });
-    // if (this.selectedVal)
-    this.loadAMResults(this.eventSvc.amprojects);
+    if (ViewResultsComponent.ohmy !== 0) {
+      this.loadResults(this.eventSvc.amprojects, 'AM');
+    }
+    ViewResultsComponent.ohmy = +ViewResultsComponent.ohmy + 1;
   }
 
 
-  // public onValChange(val: string) {
-  //   this.selectedVal = val;
-  //   if (val === 'option1') {
-  //     this.eventSvc.changeVoterViewingSession('am');
-  //   } else if (val === 'option2') {
-  //     this.eventSvc.changeVoterViewingSession('pm');
-  //     this.loadResults()
-  //   }
-  // }
+  public onChange(val: string) {
+    this.chart.destroy();
+    this.selVal = val;
+    if (val === 'option1') {
+      this.eventSvc.changeVoterViewingSession('am');
+      this.loadResults(this.eventSvc.amprojects, 'AM');
+    } else if (val === 'option2') {
+      this.eventSvc.changeVoterViewingSession('pm');
+      this.loadResults(this.eventSvc.pmprojects, 'PM');
+    }
+  }
 
-  loadAMResults(projects: any) {
+  loadResults(projects: any, time: string) {
     this.chartNames = [];
     this.chartData = [];
-    // this.chartData = [8,3,2,16,8,4,5,4,5,6,7,8,9,4,3,10,12,17,15,8,4,2,1,2,3,4,5,6,3,2];
+    this.chartData = [8, 3, 2, 16, 8, 4, 5, 4, 5, 6, 7, 8, 9, 4, 3, 10, 12, 17, 15, 8, 4, 2, 1, 2, 3, 4, 5, 6, 3, 2];
+    const chartColor = [];
     let maxVotes = -1;
     if (projects.length > 1) {
       this.projects = projects;
 
-      this.projects.forEach(project => {
+      this.projects.forEach((project, index) => {
         this.temp_votes = project.votes;
         this.temp_teamName = project.name;
         this.chartNames.push(this.temp_teamName);
@@ -82,8 +87,13 @@ export class ViewResultsComponent implements OnInit {
         if (this.temp_votes >= maxVotes) {
           maxVotes = this.temp_votes;
         }
-      });
 
+        if (index % 2 === 0) {
+          chartColor.push('steelblue');
+        } else {
+          chartColor.push('coral');
+        }
+      });
     }
     maxVotes += 2;
     this.chart = new Chart('canvas', {
@@ -91,26 +101,37 @@ export class ViewResultsComponent implements OnInit {
       data: {
         labels: this.chartNames,
         datasets: [{
-            label: 'number of votes',
-            data: this.chartData,
-            backgroundColor: 'steelblue',
-            borderWidth: 1
+          label: '# of votes',
+          data: this.chartData,
+          backgroundColor: chartColor,
+          borderWidth: 1
         }]
       },
       options: {
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: '# of Votes',
+          fontSize: 18
+        },
         maintainAspectRatio: false,
         scales: {
-            xAxes: [{
-              ticks: {
-                  fixedStepSize: 1,
-                  beginAtZero: true
-                }
-            }],
-            yAxes: [{
-              gridLines: {
-                display: false
-              }
-            }]
+          xAxes: [{
+            ticks: {
+              fixedStepSize: 1,
+              beginAtZero: true,
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontSize: 14
+            },
+            gridLines: {
+              display: false
+            }
+          }]
         }
       }
     });
