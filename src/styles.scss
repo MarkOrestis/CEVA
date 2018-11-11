@@ -2,7 +2,7 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "~@ng-select/ng-select/themes/default.theme.css";
 @import "~ngx-select-dropdown/dist/assets/style.css";
-
+@import url('https://fonts.googleapis.com/css?family=Karla');
 body {
   margin: 8px;
 }
@@ -25,6 +25,7 @@ html {
 .bgcolor {
   background-color: transparent;
 }
+//center the comment and vote button
 .mat-expansion-panel,
 .mat-expansion-panel-header,
 //.mat-expansion-panel-header-expanded,
@@ -33,16 +34,17 @@ html {
 .mat-expansion-panel-header.mat-expanded,
 //.mat-expansion-panel-header.mat-collapsed:hover,
 .mat-expansion-panel-header.mat-expanded:hover {
-  background:#66a1ee !important;
+  //background: transparent !important;
   //color:white !important;
-  border: 2px none red;
-  border-radius: 20px;
-  -moz-border-radius: 20px;
-  font-family: "Palatino Header", Times, serif;
+  // border: 2px solid white;
+  // border-radius: 5px;
+  // -moz-border-radius: 5px;
+  font-family: 'Karla', sans-serif;
+  
 }
 .mat-expansion-panel {
-  background:transparent !important;
-  border: 5px hidden transparent !important;
+  // background:transparent !important;
+  // border: 5px hidden transparent !important;
 }
 .mat-button-toggle-group {
   position: absolute;
@@ -53,5 +55,6 @@ html {
 .mat-button-toggle-checked {
   background: black;
   color: white;
+  font-family: 'Karla', sans-serif;
 }
 //#66a1ee
