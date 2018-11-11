@@ -1,13 +1,20 @@
-<span class = "center">
-<mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
-    <mat-button-toggle value="option1">
-      AM
-    </mat-button-toggle>
-    <mat-button-toggle value="option2">
-      PM
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-</span>
+<div fxLayout="row" fxLayoutAlign="space-evenly-center">
+
+        <img src="../../../assets/images/vote.png">
+    
+    
+
+        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
+            <mat-button-toggle value="option1">
+              AM
+            </mat-button-toggle>
+            <mat-button-toggle value="option2">
+              PM
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+      
+</div>
+
 <div [ngSwitch]="tabIndex" class="main-content-div">
 
   
