@@ -73,5 +73,9 @@ export class ExpoMapComponent implements OnInit, OnDestroy {
         .on('click', clicked);
     }
 
+
+  }
+
+  getLocationPoints() {
   }
 }
