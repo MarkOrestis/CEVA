@@ -3,6 +3,8 @@ import { ProjectsService } from '../../projects.service';
 import { Chart } from 'chart.js';
 import { Subscription } from 'rxjs/Subscription';
 import { EventService } from 'src/app/event.service';
+import { NavigationStart, Router } from '@angular/router';
+import { ExpoInformationComponent } from '../expo-information/expo-information.component';
 
 @Component({
   selector: 'app-view-results',
@@ -30,15 +32,7 @@ export class ViewResultsComponent implements OnInit {
 
   ngOnInit() {
     this.selVal = 'option1';
-    this.amprojects = this.eventSvc.getamProjects();
-    this.pmprojects = this.eventSvc.getpmProjects();
-    if (this.eventSvc.getVoterViewingSession() === 'am') {
-      this.projects = this.amprojects;
-      console.log('0', this.projects);
-    } else if (this.eventSvc.getVoterViewingSession() === 'pm') {
-      console.log('pm');
-      this.projects = this.pmprojects;
-    }
+    // this.loadResults(this.eventSvc.amprojects, 'AM');
     // happens only once when you first load the page
     this.amprojectsSubscription = this.eventSvc.amprojectsSubject.subscribe(() => {
       console.log('1', this.eventSvc.amprojects);
@@ -51,14 +45,15 @@ export class ViewResultsComponent implements OnInit {
         this.pmprojects.push(e);
       }
     });
-    if (ViewResultsComponent.ohmy !== 0) {
+    // if (ViewResultsComponent.ohmy !== 0) {
       this.loadResults(this.eventSvc.amprojects, 'AM');
-    }
+    // }
     ViewResultsComponent.ohmy = +ViewResultsComponent.ohmy + 1;
   }
 
 
   public onChange(val: string) {
+    // destroys existing chart
     this.chart.destroy();
     this.selVal = val;
     if (val === 'option1') {

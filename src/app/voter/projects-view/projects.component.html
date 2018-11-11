@@ -1,14 +1,14 @@
 <div>
   <div class="am-pm-switch-div">
-    <div class="am-pm-switch">
-        <mat-form-field class = "search-form">
+    <div class="am-pm-switch"> 
+        <mat-form-field class = "search-form" appearance="outline">
+            <mat-label><mat-icon font-size="30px"> search</mat-icon> Search</mat-label>
             <input matInput [(ngModel)]="searchText" placeholder="Search Here">
-            <!-- <mat-icon class = "magnifying-glass">mode_search</mat-icon> -->
           </mat-form-field>
     </div>
     
   </div>
-  <div class = "fixed-panel-size">
+  <div class = "fixed-panel-size" [class.mat-elevation-z2]="!isActive">
       <mat-expansion-panel *ngFor="let project of projects | filter: searchText">
           <mat-expansion-panel-header class = "bgcolor">
             <mat-panel-title class = "panel-title">{{project.name}}</mat-panel-title>
