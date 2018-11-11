@@ -8,7 +8,7 @@
     </div>
     
   </div>
-  <div class = "fixed-panel-size">
+  <div class = "fixed-panel-size" [class.mat-elevation-z2]="!isActive">
       <mat-expansion-panel *ngFor="let project of projects | filter: searchText">
           <mat-expansion-panel-header class = "bgcolor">
             <mat-panel-title class = "panel-title">{{project.name}}</mat-panel-title>
