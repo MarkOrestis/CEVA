@@ -1,3 +1,4 @@
+@import '../../../../src/variables.scss';
 .vote-button {
   background-color: forestgreen;
   color: white;
@@ -30,4 +31,9 @@
 .am-pm-switch {
   // float:right;
 
+}
+.fixed-panel-size{
+  overflow-y: scroll;
+  height: 85vh;
+  background-color: transparent;
 }
