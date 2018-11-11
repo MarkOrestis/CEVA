@@ -34,10 +34,17 @@
   display: flex;
 }
 
-// .image-placement {
-//   width: 50vw;
-// }
+.ceva-placement {
+  font-size: 30px;
+}
+
+.image-placement {
+  width: 60vw;
+  text-align: left;
+  padding: inherit;
+
+}
 
 .group-placement {
-  width: 90vw;
+  margin-right: -15px;
 }

@@ -1,10 +1,12 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly-center">
-
-        <img src="../../../assets/images/vote.png">
-    
-    
-
-        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
+<div class="container">
+        <span class="ceva-placement">
+          CEVA
+        </span>
+        <span class="image-placement">
+          <img src="../../../assets/images/vote.png">
+        </span>
+        <span class="group-placement">
+          <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
             <mat-button-toggle value="option1">
               AM
             </mat-button-toggle>
@@ -12,7 +14,7 @@
               PM
             </mat-button-toggle>
           </mat-button-toggle-group>
-      
+        </span>
 </div>
 
 <div [ngSwitch]="tabIndex" class="main-content-div">
