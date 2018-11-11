@@ -1,4 +1,13 @@
-<div [hidden] = "!chart">
-    <canvas id="canvas">{{ chart }}</canvas>
+<mat-button-toggle-group #group="matButtonToggleGroup" [value]="selVal" (change)="onChange(group.value)">
+        <mat-button-toggle value="option1">
+          AM
+        </mat-button-toggle>
+        <mat-button-toggle value="option2">
+          PM
+        </mat-button-toggle>
+</mat-button-toggle-group>
+<div [hidden] = "!chart" class="chart-container">
+        <canvas id="canvas">{{ chart }}</canvas>
 </div>
+
 
