@@ -35,6 +35,7 @@ import { MatFormFieldModule, MatSelectModule } from '@angular/material';
 import { NgSelectModule } from '@ng-select/ng-select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
+import { D3Service } from 'd3-ng2-service';
 
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { ExpoInformationComponent } from './admin/expo-information/expo-information.component';
@@ -94,7 +95,9 @@ import { DropdownModule } from 'angular-custom-dropdown';
     DropdownModule,
     MatButtonToggleModule
   ],
-  providers: [],
+  providers: [
+    D3Service
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

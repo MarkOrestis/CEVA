@@ -1,0 +1,12 @@
+<svg class="johns-style"></svg>
+<h4>Choose A Project To Add</h4>
+<mat-form-field>
+  <mat-select placeholder="Project" [(ngModel)]="projectSelected">
+    <mat-option *ngFor="let project of amprojects" [value]="project">
+      {{project.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<button mat-button (click)="addPoint()">ADD Project</button>
+<button mat-button (click)="saveData()">SAVE</button>
+
