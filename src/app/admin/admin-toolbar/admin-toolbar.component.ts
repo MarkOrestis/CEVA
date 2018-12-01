@@ -17,7 +17,7 @@ export class AdminToolbarComponent implements OnInit {
   events = [];
   eventsSubscription: Subscription;
 
-  selectedEvent = {};
+  selectedEvent;
   selectedEventSubscription: Subscription;
 
 

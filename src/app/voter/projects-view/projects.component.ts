@@ -17,7 +17,7 @@ export class ProjectsComponent implements OnInit {
   amprojects = [];
   pmprojectsSubscription: Subscription;
   pmprojects = [];
-
+  isActive: boolean;
   voterViewingSession: string;
   voterViewingSessionSubscription: Subscription;
   searchText = '';
