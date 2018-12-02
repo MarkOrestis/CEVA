@@ -15,6 +15,8 @@ const key = 'mapPoints';
 })
 export class CreateExpoMapComponent implements OnInit, OnChanges, OnDestroy {
 
+  selectedFile: File;
+
   amprojects = [];
   amprojectsSubscription: Subscription;
   pmprojects = [];
@@ -209,5 +211,13 @@ export class CreateExpoMapComponent implements OnInit, OnChanges, OnDestroy {
 
   saveData() {
    localStorage.setItem(key, JSON.stringify(this.location));
+  }
+
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
   }
 }

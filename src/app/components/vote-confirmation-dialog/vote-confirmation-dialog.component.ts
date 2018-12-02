@@ -37,4 +37,7 @@ export class VoteConfirmationDialogComponent {
       }
       return true;
     }
+    resolved(response) {
+      console.log(JSON.stringify(response));
+    }
 }

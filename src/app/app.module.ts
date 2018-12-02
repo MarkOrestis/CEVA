@@ -46,6 +46,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import { DropdownModule } from 'angular-custom-dropdown';
 
+import {RecaptchaModule} from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { DropdownModule } from 'angular-custom-dropdown';
     AngularFileUploaderModule,
     MatTableModule,
     DropdownModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    RecaptchaModule
   ],
   providers: [
     D3Service

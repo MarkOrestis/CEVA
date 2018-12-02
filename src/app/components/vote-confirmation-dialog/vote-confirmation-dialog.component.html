@@ -1,6 +1,9 @@
 
 <div *ngIf="hasVoted(); else cantVoteTemplate">
   <h1 mat-dialog-title> Would you like to cast a vote for: <br> {{data.project.title}}</h1>
+  <div style="transform:scale(0.7);transform-origin:0;">
+    <re-captcha  (resolved)="resolved($event)" siteKey="6LdIT34UAAAAACra1XYXtxMM6sfS0M40DKir48wQ"></re-captcha>
+  </div>
   <div mat-dialog-actions class="cast-vote-button-container">
     <button mat-button (click)="onCancel()">Cancel</button>
     <button class="cast-vote-button"

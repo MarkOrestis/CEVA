@@ -3,7 +3,7 @@
           CEVA
         </span>
         <span class="image-placement">
-          <img src="../../../assets/images/vote.png">
+          <img src="/src/assets/images/vote.png">
         </span>
         <span class="group-placement">
           <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)" >
@@ -19,7 +19,7 @@
 
 <div [ngSwitch]="tabIndex" class="main-content-div">
 
-  
+
   <app-projects *ngSwitchCase="0"></app-projects>
   <app-expo-map *ngSwitchCase="1"></app-expo-map>
   <app-info-view *ngSwitchCase="2"></app-info-view>
@@ -45,7 +45,7 @@
     </ng-template>
   </mat-tab>
 
-  
+
 
 
 

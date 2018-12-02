@@ -68,7 +68,7 @@ export class ViewResultsComponent implements OnInit {
   loadResults(projects: any, time: string) {
     this.chartNames = [];
     this.chartData = [];
-    this.chartData = [8, 3, 2, 16, 8, 4, 5, 4, 5, 6, 7, 8, 9, 4, 3, 10, 12, 17, 15, 8, 4, 2, 1, 2, 3, 4, 5, 6, 3, 2];
+    // this.chartData = [8, 3, 2, 16, 8, 4, 5, 4, 5, 6, 7, 8, 9, 4, 3, 10, 12, 17, 15, 8, 4, 2, 1, 2, 3, 4, 5, 6, 3, 2];
     const chartColor = [];
     let maxVotes = -1;
     if (projects.length > 1) {
