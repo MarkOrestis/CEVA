@@ -59,6 +59,7 @@ export class ProjectsComponent implements OnInit {
   }
 
   castVote(project): void {
+    console.log(project);
     const dialogRef = this.dialog.open(VoteConfirmationDialogComponent, {
       data: {project: project}
     });

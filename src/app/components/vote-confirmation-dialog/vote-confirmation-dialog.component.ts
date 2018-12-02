@@ -2,10 +2,11 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Project} from '../../structs/Project';
 import {ProjectsService} from '../../projects.service';
+import {EventService} from '../../event.service';
 
-export interface DialogData {
- project: Project;
-}
+// export interface DialogData {
+//  project: Project;
+// }
 
 const key = 'hasVoted';
 
@@ -17,14 +18,14 @@ const key = 'hasVoted';
 export class VoteConfirmationDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<VoteConfirmationDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private projectService: ProjectsService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private eventService: EventService) { }
 
     onCancel(): void {
     this.dialogRef.close();
     }
     onConfirm(): void {
-    this.projectService.castVote(this.data.project.teamNumber);
+    this.eventService.castVote(this.data.project.id);
     localStorage.setItem(key, 'true');
     this.dialogRef.close();
     }
