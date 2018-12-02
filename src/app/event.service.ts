@@ -9,6 +9,7 @@ import {Observable, of, from } from 'rxjs';
 import {map} from 'rxjs/operators';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {MatSnackBar} from '@angular/material';
 
 
 @Injectable({
@@ -27,8 +28,8 @@ export class EventService {
   voterViewingSessionSubject: Subject<string> = new Subject<string>();
 
 
-  url = 'https://juniordesign.herokuapp.com/';
-  // url = 'http://localhost:8080/';
+  // url = 'https://juniordesign.herokuapp.com/';
+  url = 'http://localhost:8080/';
 
   amprojects = [];
   amprojectsSubject: Subject<any[]> = new Subject<any[]>();
@@ -39,7 +40,7 @@ export class EventService {
   numpm = 0;
   numpmsub: Subject<number> = new Subject<number>();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,public snackBar: MatSnackBar) {
     this.loadEvents();
     this.voterViewingSession = 'am';
     this.voterViewingSessionSubject.next(this.voterViewingSession);
@@ -99,6 +100,19 @@ export class EventService {
     });
     this.selectedEvent = e;
     this.selectedEventSubject.next(this.selectedEvent);
+  }
+
+  castVote(teamId) {
+    console.log(teamId);
+    this.http.post<any>(this.url  + 'event/team/vote', {id: teamId}).subscribe(
+      response => {
+        if (true) {
+          this.snackBar.open('Vote Successfully cast', null, {
+            duration: 3000
+          });
+        }
+      }
+    );
   }
 
   public getSelectedEvent() {
